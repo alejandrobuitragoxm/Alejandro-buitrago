@@ -1,0 +1,6 @@
+{
+  "name": "KINETIC // Director & Video Portfolio",
+  "description": "A high-end cinematic video production and director portfolio inspired by Join Omerta and Darkwater Productions, featuring interactive showreels, filterable video showcases, credit breakdowns, and project management.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
