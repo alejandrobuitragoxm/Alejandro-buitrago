@@ -19,7 +19,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenContact, onOpenNewProject 
           <div className="md:col-span-5 flex flex-col justify-between">
             <div>
               <div className="flex items-center gap-2 mb-4">
-                <div className="w-6 h-6 rounded bg-zinc-900 border border-zinc-800 flex items-center justify-center text-amber-400">
+                <div className="w-6 h-6 rounded bg-zinc-900 border border-zinc-800 flex items-center justify-center text-zinc-300">
                   <Film className="w-3 h-3" />
                 </div>
                 <span className="font-syne font-extrabold text-white text-base tracking-widest uppercase">
@@ -59,7 +59,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenContact, onOpenNewProject 
             </span>
             <a
               href="mailto:alejandro.buitrago.xm@gmail.com"
-              className="text-zinc-300 hover:text-amber-400 transition-colors flex items-center gap-2"
+              className="text-zinc-300 hover:text-white transition-colors flex items-center gap-2"
             >
               <Mail className="w-3.5 h-3.5" />
               <span>alejandro.buitrago.xm@gmail.com</span>

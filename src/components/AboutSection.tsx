@@ -21,7 +21,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onOpenContact, onOpe
         <div id="clientes" className="mb-20 pb-16 border-b border-zinc-800/80">
           <div className="flex items-center justify-between mb-8">
             <span className="text-xs font-mono-code uppercase text-zinc-500 tracking-widest flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-amber-400"></span>
+              <span className="w-2 h-2 rounded-full bg-zinc-400"></span>
               SELECTED CLIENTS & BRANDS
             </span>
             <span className="text-[11px] font-mono-code text-zinc-600">
@@ -56,8 +56,8 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onOpenContact, onOpe
               <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent"></div>
 
               <div className="absolute bottom-4 left-4 right-4">
-                <span className="text-[10px] font-mono-code uppercase text-amber-400 tracking-widest">
-                  DIRECTOR
+                <span className="text-[10px] font-mono-code uppercase text-zinc-300 tracking-[0.28em]">
+                  Creative Director &amp; Filmmaker
                 </span>
                 <h3 className="font-syne font-extrabold text-2xl uppercase text-white">
                   {DIRECTOR_BIO.name}
@@ -84,13 +84,13 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onOpenContact, onOpe
           <div className="lg:col-span-7 flex flex-col gap-10">
             {/* Manifest / Statement */}
             <div>
-              <span className="text-xs font-mono-code uppercase text-amber-400 tracking-widest block mb-2">
+              <span className="text-xs font-mono-code uppercase text-zinc-300 tracking-widest block mb-2">
                 // MANIFESTO & VISION
               </span>
               <blockquote className="font-cinzel text-xl sm:text-2xl md:text-3xl text-zinc-100 italic leading-snug mb-6 w-fit max-w-full">
                 <span className="flex items-baseline gap-4">
                   <span>{quoteLead}</span>
-                  <span className="ml-auto not-italic text-amber-400">//</span>
+                  <span className="ml-auto not-italic text-zinc-300">//</span>
                 </span>
                 <span className="block">{quoteTail}</span>
               </blockquote>
@@ -114,7 +114,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onOpenContact, onOpe
                     key={idx}
                     className="p-2.5 rounded-sm bg-zinc-950 border border-zinc-800/70 flex items-start gap-2"
                   >
-                    <CheckCircle2 className="w-3.5 h-3.5 text-amber-400 shrink-0 mt-0.5" />
+                    <CheckCircle2 className="w-3.5 h-3.5 text-zinc-300 shrink-0 mt-0.5" />
                     <span>{gear}</span>
                   </div>
                 ))}

@@ -129,7 +129,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
             className="flex items-center gap-1.5 px-3 py-1.5 rounded-sm bg-zinc-900 hover:bg-zinc-800 border border-zinc-700 text-zinc-300 text-xs font-mono-code transition-colors"
             title="Edit this project's info or video"
           >
-            <Edit3 className="w-3.5 h-3.5 text-amber-400" />
+            <Edit3 className="w-3.5 h-3.5 text-zinc-300" />
             <span className="hidden md:inline">EDIT</span>
           </button>
 
@@ -181,7 +181,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
                   href={project.videoUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2 rounded-sm bg-white px-6 py-3 font-syne text-sm font-bold uppercase tracking-wider text-black transition-colors hover:bg-amber-400"
+                  className="flex items-center gap-2 rounded-sm bg-white px-6 py-3 font-syne text-sm font-bold uppercase tracking-wider text-black transition-colors hover:bg-zinc-400"
                 >
                   <Play className="h-4 w-4 fill-current" />
                   Watch on YouTube
@@ -222,7 +222,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
             <div>
               {/* Category & Year */}
               <div className="flex items-center gap-3 text-xs font-mono-code text-zinc-400 uppercase tracking-widest mb-2">
-                <span className="text-amber-400 font-semibold">{project.client}</span>
+                <span className="text-zinc-300 font-semibold">{project.client}</span>
                 <span>•</span>
                 <span>{project.category}</span>
                 <span>•</span>
@@ -249,15 +249,15 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
 
             {/* Awards & Laurels */}
             {project.laurels && project.laurels.length > 0 && (
-              <div className="p-4 rounded-sm bg-amber-950/20 border border-amber-500/30 flex flex-col gap-2">
-                <span className="text-[11px] font-mono-code uppercase tracking-wider text-amber-400 font-semibold flex items-center gap-1.5">
+              <div className="p-4 rounded-sm bg-zinc-900/40 border border-zinc-700/40 flex flex-col gap-2">
+                <span className="text-[11px] font-mono-code uppercase tracking-wider text-zinc-300 font-semibold flex items-center gap-1.5">
                   <Award className="w-4 h-4" /> SELECTIONS & AWARDS
                 </span>
                 <div className="flex flex-wrap gap-2">
                   {project.laurels.map((laurel, i) => (
                     <span
                       key={i}
-                      className="text-xs font-mono-code text-zinc-300 bg-black/40 px-2.5 py-1 rounded border border-amber-500/20"
+                      className="text-xs font-mono-code text-zinc-300 bg-black/40 px-2.5 py-1 rounded border border-zinc-700/40"
                     >
                       🏆 {laurel}
                     </span>
@@ -313,7 +313,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
           {/* Right Col: Technical Specs & Film Credits */}
           <div className="flex flex-col gap-6 bg-zinc-950/60 border border-zinc-800/80 p-6 rounded-sm">
             <div>
-              <h4 className="text-xs font-mono-code text-amber-400 uppercase tracking-wider pb-3 border-b border-zinc-800 flex items-center gap-2">
+              <h4 className="text-xs font-mono-code text-zinc-300 uppercase tracking-wider pb-3 border-b border-zinc-800 flex items-center gap-2">
                 <MapPin className="w-3.5 h-3.5" />
                 DETAILS
               </h4>
@@ -353,7 +353,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
             </div>
             <div className="text-left hidden sm:flex flex-col">
               <span className="text-[10px] text-zinc-600 uppercase">PREVIOUS</span>
-              <span className="text-zinc-300 font-syne font-bold uppercase group-hover:text-amber-400">
+              <span className="text-zinc-300 font-syne font-bold uppercase group-hover:text-white">
                 {prevProject.title}
               </span>
             </div>
@@ -370,7 +370,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
           >
             <div className="text-right hidden sm:flex flex-col">
               <span className="text-[10px] text-zinc-600 uppercase">NEXT</span>
-              <span className="text-zinc-300 font-syne font-bold uppercase group-hover:text-amber-400">
+              <span className="text-zinc-300 font-syne font-bold uppercase group-hover:text-white">
                 {nextProject.title}
               </span>
             </div>

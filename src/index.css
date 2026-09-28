@@ -6,16 +6,19 @@
   }
 }
 
+/* Type system: one serif display (Cinzel) + one clean grotesk (Plus Jakarta Sans).
+   The legacy .font-syne / .font-mono-code classes now resolve to the grotesk so the
+   whole UI reads as a single, disciplined family. */
 .font-cinzel {
   font-family: 'Cinzel', serif;
 }
 
 .font-syne {
-  font-family: 'Syne', sans-serif;
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
 .font-mono-code {
-  font-family: 'JetBrains Mono', monospace;
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
 /* Cinematic film grain overlay */
@@ -42,4 +45,57 @@
 /* Anamorphic letterbox aspect ratio */
 .aspect-cinemascope {
   aspect-ratio: 2.39 / 1;
+}
+
+/* Smooth in-page navigation */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Continuous client marquee */
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+.animate-marquee {
+  animation: marquee 38s linear infinite;
+}
+.marquee-mask {
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 12%, #000 88%, transparent);
+  mask-image: linear-gradient(to right, transparent, #000 12%, #000 88%, transparent);
+}
+
+/* Consistent, calm hover/interaction feel across links & buttons */
+a,
+button {
+  transition: color 0.25s ease, background-color 0.25s ease, border-color 0.25s ease, opacity 0.25s ease;
+}
+
+/* Brief cinematic intro: a black curtain that fades out once the page is ready */
+#intro-curtain {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  background: #08080a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 1;
+  transition: opacity 0.9s ease 0.2s;
+  pointer-events: none;
+}
+#intro-curtain.hide {
+  opacity: 0;
+}
+#intro-curtain .intro-mark {
+  font-family: 'Cinzel', serif;
+  letter-spacing: 0.35em;
+  font-size: 0.85rem;
+  color: #d4d4d8;
+  text-transform: uppercase;
+  animation: introPulse 1.4s ease-in-out infinite;
+}
+@keyframes introPulse {
+  0%, 100% { opacity: 0.35; }
+  50% { opacity: 1; }
 }

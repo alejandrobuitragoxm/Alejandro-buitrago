@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { Volume2, VolumeX } from 'lucide-react';
+import { Volume2, VolumeX, Play, Pause } from 'lucide-react';
 import { VideoProject } from '../types';
 
 interface HeroReelProps {
@@ -16,6 +16,7 @@ interface HeroReelProps {
 export const HeroReel: React.FC<HeroReelProps> = ({ featuredProject }) => {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [isMuted, setIsMuted] = useState(true);
+  const [isPaused, setIsPaused] = useState(false);
   const [videoOk, setVideoOk] = useState(true);
   const [loaded, setLoaded] = useState(false);
 
@@ -38,6 +39,18 @@ export const HeroReel: React.FC<HeroReelProps> = ({ featuredProject }) => {
     // Unmuting sometimes needs a fresh play() call on user gesture.
     if (!v.muted) v.play().catch(() => {});
     setIsMuted(v.muted);
+  };
+
+  const togglePlay = () => {
+    const v = videoRef.current;
+    if (!v) return;
+    if (v.paused) {
+      v.play().catch(() => {});
+      setIsPaused(false);
+    } else {
+      v.pause();
+      setIsPaused(true);
+    }
   };
 
   return (
@@ -76,36 +89,43 @@ export const HeroReel: React.FC<HeroReelProps> = ({ featuredProject }) => {
         <div className="pointer-events-none absolute inset-0 bg-grain opacity-30" />
       </div>
 
-      {/* Headline */}
+      {/* Headline (title removed per request; eyebrow + statement kept) */}
       <div className="relative z-10 flex h-full flex-col justify-end px-6 pb-24 sm:px-12 lg:px-16">
         <div className="max-w-5xl">
-          <span className="font-mono-code text-[11px] uppercase tracking-[0.35em] text-zinc-300/80">
-            Alejandro Buitrago — Director
+          <span className="text-[11px] uppercase tracking-[0.35em] text-zinc-300/80">
+            Alejandro Buitrago — Creative Director &amp; Filmmaker
           </span>
-          <h1 className="mt-5 font-cinzel text-6xl font-medium leading-[0.92] text-white drop-shadow-[0_2px_30px_rgba(0,0,0,0.55)] sm:text-8xl lg:text-[9rem]">
-            Close Enough<br />
-            <span className="italic text-zinc-300">to feel it</span>
-          </h1>
           <p className="mt-6 max-w-md text-sm font-light leading-relaxed text-zinc-300/90 sm:text-base">
             Commercial work and personal stories, shot the same way: up close.
           </p>
         </div>
       </div>
 
-      {/* Sound toggle */}
-      <button
-        onClick={toggleMute}
-        id="hero-sound-toggle-btn"
-        className="absolute bottom-8 right-6 z-20 flex items-center gap-2 rounded-full border border-white/20 bg-black/30 px-4 py-2.5 text-[11px] font-medium uppercase tracking-widest text-white backdrop-blur-sm transition-colors hover:bg-white hover:text-black sm:right-12"
-        title={isMuted ? 'Enable sound' : 'Mute'}
-      >
-        {isMuted ? <VolumeX className="h-4 w-4" /> : <Volume2 className="h-4 w-4" />}
-        <span className="hidden sm:inline">{isMuted ? 'Sound off' : 'Sound on'}</span>
-      </button>
+      {/* Playback controls: pause + sound */}
+      <div className="absolute bottom-8 right-6 z-20 flex items-center gap-2 sm:right-12">
+        <button
+          onClick={togglePlay}
+          id="hero-play-toggle-btn"
+          className="flex h-10 w-10 items-center justify-center rounded-full border border-white/20 bg-black/30 text-white backdrop-blur-sm hover:bg-white hover:text-black"
+          title={isPaused ? 'Play' : 'Pause'}
+          aria-label={isPaused ? 'Play' : 'Pause'}
+        >
+          {isPaused ? <Play className="h-4 w-4 fill-current" /> : <Pause className="h-4 w-4 fill-current" />}
+        </button>
+        <button
+          onClick={toggleMute}
+          id="hero-sound-toggle-btn"
+          className="flex h-10 w-10 items-center justify-center rounded-full border border-white/20 bg-black/30 text-white backdrop-blur-sm hover:bg-white hover:text-black"
+          title={isMuted ? 'Enable sound' : 'Mute'}
+          aria-label={isMuted ? 'Enable sound' : 'Mute'}
+        >
+          {isMuted ? <VolumeX className="h-4 w-4" /> : <Volume2 className="h-4 w-4" />}
+        </button>
+      </div>
 
       {/* Scroll cue */}
       <div className="absolute bottom-8 left-1/2 z-20 flex -translate-x-1/2 flex-col items-center gap-2 text-zinc-300/70">
-        <span className="font-mono-code text-[10px] uppercase tracking-[0.3em]">Scroll</span>
+        <span className="text-[10px] uppercase tracking-[0.3em]">Scroll</span>
         <span className="h-10 w-px animate-pulse bg-gradient-to-b from-white/70 to-transparent" />
       </div>
     </section>

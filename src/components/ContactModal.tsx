@@ -34,7 +34,7 @@ export const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) =
         {/* Header */}
         <div className="px-6 py-4 bg-zinc-900 border-b border-zinc-800 flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <Mail className="w-4 h-4 text-amber-400" />
+            <Mail className="w-4 h-4 text-zinc-300" />
             <h3 className="font-syne font-bold text-base text-white uppercase tracking-wider">
               START A CONVERSATION // BOOKING & CONTACT
             </h3>
@@ -49,7 +49,7 @@ export const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) =
 
         {submitted ? (
           <div className="p-8 text-center flex flex-col items-center justify-center py-16">
-            <div className="w-14 h-14 rounded-full bg-amber-400/10 border border-amber-400/30 flex items-center justify-center text-amber-400 mb-4">
+            <div className="w-14 h-14 rounded-full bg-zinc-400/10 border border-zinc-500/30 flex items-center justify-center text-zinc-300 mb-4">
               <CheckCircle2 className="w-8 h-8" />
             </div>
             <h4 className="font-syne font-bold text-2xl uppercase text-white mb-2">
@@ -63,7 +63,7 @@ export const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) =
                 setSubmitted(false);
                 onClose();
               }}
-              className="px-6 py-2.5 bg-amber-400 text-black font-semibold text-xs font-mono-code uppercase rounded-sm"
+              className="px-6 py-2.5 bg-zinc-400 text-black font-semibold text-xs font-mono-code uppercase rounded-sm"
             >
               CLOSE
             </button>
@@ -81,7 +81,7 @@ export const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) =
                   placeholder="e.g. Martin Soler"
                   value={form.name}
                   onChange={(e) => setForm({ ...form, name: e.target.value })}
-                  className="w-full bg-zinc-950 border border-zinc-800 text-zinc-100 px-3 py-2 rounded-sm focus:outline-none focus:border-amber-400"
+                  className="w-full bg-zinc-950 border border-zinc-800 text-zinc-100 px-3 py-2 rounded-sm focus:outline-none focus:border-zinc-500"
                 />
               </div>
 
@@ -95,7 +95,7 @@ export const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) =
                   placeholder="you@company.com"
                   value={form.email}
                   onChange={(e) => setForm({ ...form, email: e.target.value })}
-                  className="w-full bg-zinc-950 border border-zinc-800 text-zinc-100 px-3 py-2 rounded-sm focus:outline-none focus:border-amber-400"
+                  className="w-full bg-zinc-950 border border-zinc-800 text-zinc-100 px-3 py-2 rounded-sm focus:outline-none focus:border-zinc-500"
                 />
               </div>
             </div>
@@ -110,7 +110,7 @@ export const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) =
                   placeholder="Production company / Brand..."
                   value={form.company}
                   onChange={(e) => setForm({ ...form, company: e.target.value })}
-                  className="w-full bg-zinc-950 border border-zinc-800 text-zinc-100 px-3 py-2 rounded-sm focus:outline-none focus:border-amber-400"
+                  className="w-full bg-zinc-950 border border-zinc-800 text-zinc-100 px-3 py-2 rounded-sm focus:outline-none focus:border-zinc-500"
                 />
               </div>
 
@@ -121,7 +121,7 @@ export const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) =
                 <select
                   value={form.projectType}
                   onChange={(e) => setForm({ ...form, projectType: e.target.value })}
-                  className="w-full bg-zinc-950 border border-zinc-800 text-zinc-100 px-3 py-2 rounded-sm focus:outline-none focus:border-amber-400"
+                  className="w-full bg-zinc-950 border border-zinc-800 text-zinc-100 px-3 py-2 rounded-sm focus:outline-none focus:border-zinc-500"
                 >
                   <option value="Commercial">Commercial / Spot</option>
                   <option value="Music Video">Music Video</option>
@@ -138,7 +138,7 @@ export const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) =
                 <select
                   value={form.role}
                   onChange={(e) => setForm({ ...form, role: e.target.value })}
-                  className="w-full bg-zinc-950 border border-zinc-800 text-zinc-100 px-3 py-2 rounded-sm focus:outline-none focus:border-amber-400"
+                  className="w-full bg-zinc-950 border border-zinc-800 text-zinc-100 px-3 py-2 rounded-sm focus:outline-none focus:border-zinc-500"
                 >
                   <option value="Director">Directing</option>
                   <option value="Creative Direction">Creative Direction</option>
@@ -157,7 +157,7 @@ export const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) =
                 placeholder="Describe the concept, estimated shoot dates, location, deliverables..."
                 value={form.message}
                 onChange={(e) => setForm({ ...form, message: e.target.value })}
-                className="w-full bg-zinc-950 border border-zinc-800 text-zinc-100 p-3 rounded-sm focus:outline-none focus:border-amber-400 resize-y"
+                className="w-full bg-zinc-950 border border-zinc-800 text-zinc-100 p-3 rounded-sm focus:outline-none focus:border-zinc-500 resize-y"
               />
             </div>
 
@@ -166,7 +166,7 @@ export const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) =
               <div className="flex items-center gap-4">
                 <a
                   href="mailto:alejandro.buitrago.xm@gmail.com"
-                  className="hover:text-amber-400 transition-colors flex items-center gap-1"
+                  className="hover:text-white transition-colors flex items-center gap-1"
                 >
                   <Mail className="w-3.5 h-3.5" />
                   <span>alejandro.buitrago.xm@gmail.com</span>
@@ -175,7 +175,7 @@ export const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) =
                   href="https://www.instagram.com/a_buitrag0/"
                   target="_blank"
                   rel="noreferrer"
-                  className="hover:text-amber-400 transition-colors flex items-center gap-1"
+                  className="hover:text-white transition-colors flex items-center gap-1"
                 >
                   <Instagram className="w-3.5 h-3.5" />
                   <span>@a_buitrag0</span>
@@ -192,7 +192,7 @@ export const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) =
                 </button>
                 <button
                   type="submit"
-                  className="px-6 py-2 bg-amber-400 hover:bg-amber-300 text-black font-semibold uppercase rounded-sm flex items-center gap-2 transition-all shadow-md"
+                  className="px-6 py-2 bg-white hover:bg-zinc-200 text-black font-semibold uppercase rounded-sm flex items-center gap-2 transition-all shadow-md"
                 >
                   <Send className="w-3.5 h-3.5" />
                   <span>SEND BRIEF</span>

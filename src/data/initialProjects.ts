@@ -242,7 +242,7 @@ export const CLIENT_LOGOS = [
 
 export const DIRECTOR_BIO = {
   name: 'Alejandro Buitrago',
-  title: 'Director',
+  title: 'Creative Director & Filmmaker',
   location: 'Available Worldwide',
   bio: `That's been true of me since I was a kid, long before I ever picked up a camera. Whenever I discovered something — a place, a story, a person — my first instinct was always to share it, so other people could feel a piece of what I felt in that moment.
 

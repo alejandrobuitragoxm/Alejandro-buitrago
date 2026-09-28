@@ -86,7 +86,7 @@ export const WorksGallery: React.FC<WorksGalleryProps> = ({
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between pb-8 mb-8 border-b border-zinc-800 gap-6">
           <div>
-            <div className="flex items-center gap-2 text-xs font-mono-code tracking-widest text-amber-400 uppercase mb-2">
+            <div className="flex items-center gap-2 text-xs font-mono-code tracking-widest text-zinc-300 uppercase mb-2">
               <Film className="w-3.5 h-3.5" />
               <span>CATALOG // FILMOGRAPHY</span>
             </div>
@@ -134,7 +134,7 @@ export const WorksGallery: React.FC<WorksGalleryProps> = ({
               <select
                 value={selectedRole}
                 onChange={(e) => setSelectedRole(e.target.value)}
-                className="appearance-none bg-zinc-900 border border-zinc-800 hover:border-zinc-700 text-zinc-300 text-xs font-mono-code uppercase px-3 py-2 pr-8 rounded-sm focus:outline-none focus:border-amber-400 cursor-pointer"
+                className="appearance-none bg-zinc-900 border border-zinc-800 hover:border-zinc-700 text-zinc-300 text-xs font-mono-code uppercase px-3 py-2 pr-8 rounded-sm focus:outline-none focus:border-zinc-500 cursor-pointer"
               >
                 {roleOptions.map((opt) => (
                   <option key={opt.value} value={opt.value}>{opt.label}</option>
@@ -152,7 +152,7 @@ export const WorksGallery: React.FC<WorksGalleryProps> = ({
                 placeholder="Search film..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full bg-zinc-900 border border-zinc-800 text-zinc-200 text-xs font-mono-code placeholder:text-zinc-500 px-3 py-2 pl-8 rounded-sm focus:outline-none focus:border-amber-400"
+                className="w-full bg-zinc-900 border border-zinc-800 text-zinc-200 text-xs font-mono-code placeholder:text-zinc-500 px-3 py-2 pl-8 rounded-sm focus:outline-none focus:border-zinc-500"
               />
               <Search className="w-3.5 h-3.5 text-zinc-500 absolute left-2.5 top-1/2 -translate-y-1/2 pointer-events-none" />
               {searchQuery && (

@@ -131,7 +131,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, onSelect, onE
           {/* Project Title */}
           <h3 
             onClick={() => onSelect(project)}
-            className="font-syne font-bold text-lg sm:text-xl text-white group-hover:text-amber-400 transition-colors uppercase tracking-tight cursor-pointer line-clamp-1"
+            className="font-syne font-bold text-lg sm:text-xl text-white group-hover:text-zinc-300 transition-colors uppercase tracking-tight cursor-pointer line-clamp-1"
           >
             {project.title}
           </h3>
@@ -172,7 +172,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, onSelect, onE
               className="text-[11px] font-mono-code uppercase text-zinc-400 group-hover:text-white flex items-center gap-1 transition-colors pl-1"
             >
               <span>VIEW</span>
-              <span className="text-amber-400">→</span>
+              <span className="text-zinc-400 group-hover:text-white transition-colors">→</span>
             </button>
           </div>
         </div>

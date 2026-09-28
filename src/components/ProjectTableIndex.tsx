@@ -51,16 +51,16 @@ export const ProjectTableIndex: React.FC<ProjectTableIndexProps> = ({
                 onMouseLeave={() => setHoveredProject(null)}
                 onClick={() => onSelect(proj)}
               >
-                <td className="py-4 px-4 text-zinc-600 group-hover:text-amber-400 transition-colors">
+                <td className="py-4 px-4 text-zinc-600 group-hover:text-white transition-colors">
                   {String(idx + 1).padStart(2, '0')}
                 </td>
                 <td className="py-4 px-4">
                   <div className="flex items-center gap-2">
-                    <span className="font-syne font-bold text-sm sm:text-base text-zinc-100 group-hover:text-amber-400 group-hover:translate-x-1 transition-all uppercase">
+                    <span className="font-syne font-bold text-sm sm:text-base text-zinc-100 group-hover:text-white group-hover:translate-x-1 transition-all uppercase">
                       {proj.title}
                     </span>
                     {proj.laurels && proj.laurels.length > 0 && (
-                      <span className="text-amber-400" title={proj.laurels[0]}>
+                      <span className="text-zinc-300" title={proj.laurels[0]}>
                         <Award className="w-3.5 h-3.5" />
                       </span>
                     )}
@@ -112,7 +112,7 @@ export const ProjectTableIndex: React.FC<ProjectTableIndexProps> = ({
                       className="inline-flex items-center gap-1 text-zinc-400 group-hover:text-white font-semibold transition-colors"
                     >
                       <span className="hidden sm:inline">VIEW</span>
-                      <ArrowUpRight className="w-4 h-4 text-amber-400" />
+                      <ArrowUpRight className="w-4 h-4 text-zinc-300" />
                     </button>
                   </div>
                 </td>
@@ -142,7 +142,7 @@ export const ProjectTableIndex: React.FC<ProjectTableIndexProps> = ({
             <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent"></div>
             <div className="absolute bottom-2 left-2 right-2 flex items-center justify-between text-[10px] font-mono-code text-white">
               <span className="truncate max-w-[160px] font-semibold">{hoveredProject.title}</span>
-              <span className="text-amber-400">{hoveredProject.duration}</span>
+              <span className="text-zinc-300">{hoveredProject.duration}</span>
             </div>
           </div>
         </div>

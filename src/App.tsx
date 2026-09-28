@@ -9,6 +9,7 @@ import { INITIAL_PROJECTS, REEL_ORDER } from './data/initialProjects';
 import { Header } from './components/Header';
 import { HeroReel } from './components/HeroReel';
 import { CinematicReel } from './components/CinematicReel';
+import { ClientStrip } from './components/ClientStrip';
 import { WorksGallery } from './components/WorksGallery';
 import { ProjectModal } from './components/ProjectModal';
 import { ProjectEditorModal } from './components/ProjectEditorModal';
@@ -186,6 +187,9 @@ export default function App() {
           onOpenReel={() => setIsShowreelOpen(true)}
           featuredProject={projects[0]}
         />
+
+        {/* Social proof strip — clients visible high on the page */}
+        <ClientStrip />
 
         {/* Omertá-style scroll-driven cinematic sequence — curated subset in REEL_ORDER */}
         <CinematicReel
