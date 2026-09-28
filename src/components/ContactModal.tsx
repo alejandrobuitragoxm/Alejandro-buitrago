@@ -8,6 +8,8 @@ interface ContactModalProps {
 
 export const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) => {
   const [submitted, setSubmitted] = useState(false);
+  const [sending, setSending] = useState(false);
+  const [error, setError] = useState<string | null>(null);
   const [form, setForm] = useState({
     name: '',
     email: '',
@@ -20,9 +22,26 @@ export const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) =
 
   if (!isOpen) return null;
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
+    setError(null);
+    setSending(true);
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(form),
+      });
+      if (!res.ok) {
+        const data = await res.json().catch(() => ({}));
+        throw new Error(data.error || 'Something went wrong. Please try again.');
+      }
+      setSubmitted(true);
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'Something went wrong. Please try again.');
+    } finally {
+      setSending(false);
+    }
   };
 
   return (
@@ -192,13 +211,18 @@ export const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) =
                 </button>
                 <button
                   type="submit"
-                  className="px-6 py-2 bg-white hover:bg-zinc-200 text-black font-semibold uppercase rounded-sm flex items-center gap-2 transition-all shadow-md"
+                  disabled={sending}
+                  className="px-6 py-2 bg-white hover:bg-zinc-200 text-black font-semibold uppercase rounded-sm flex items-center gap-2 transition-all shadow-md disabled:opacity-60 disabled:cursor-not-allowed"
                 >
                   <Send className="w-3.5 h-3.5" />
-                  <span>SEND BRIEF</span>
+                  <span>{sending ? 'SENDING…' : 'SEND BRIEF'}</span>
                 </button>
               </div>
             </div>
+
+            {error && (
+              <p className="text-[11px] text-red-400 font-mono-code pt-1">{error}</p>
+            )}
           </form>
         )}
       </div>
