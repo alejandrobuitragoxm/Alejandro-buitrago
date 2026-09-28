@@ -37,14 +37,32 @@ export const HeroReel: React.FC<HeroReelProps> = ({ featuredProject }) => {
       const p = v.play();
       if (p && typeof p.catch === 'function') p.catch(() => {});
     };
+    // Lift the intro curtain only once the video is actually rendering frames,
+    // so the visitor lands straight into the moving video (never on the poster).
+    const reveal = () => {
+      const c = document.getElementById('intro-curtain');
+      if (!c) return;
+      c.classList.add('hide');
+      window.setTimeout(() => c.remove(), 1000);
+    };
     tryPlay();
     v.addEventListener('loadeddata', tryPlay);
     v.addEventListener('canplay', tryPlay);
+    v.addEventListener('playing', reveal);
     return () => {
       v.removeEventListener('loadeddata', tryPlay);
       v.removeEventListener('canplay', tryPlay);
+      v.removeEventListener('playing', reveal);
     };
   }, []);
+
+  // If the video can't be used, drop the curtain so the poster shows instead.
+  const revealNow = () => {
+    const c = document.getElementById('intro-curtain');
+    if (!c) return;
+    c.classList.add('hide');
+    window.setTimeout(() => c.remove(), 1000);
+  };
 
   const toggleMute = () => {
     const v = videoRef.current;
@@ -84,7 +102,10 @@ export const HeroReel: React.FC<HeroReelProps> = ({ featuredProject }) => {
             preload="auto"
             poster={poster}
             onCanPlay={() => setLoaded(true)}
-            onError={() => setVideoOk(false)}
+            onError={() => {
+              setVideoOk(false);
+              revealNow();
+            }}
             className={`h-full w-full object-cover transition-opacity duration-[1200ms] ${
               loaded ? 'opacity-100' : 'opacity-0'
             }`}

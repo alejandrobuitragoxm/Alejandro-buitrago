@@ -23,18 +23,17 @@
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
     <script>
-      // Fade out the intro curtain shortly after load, then remove it from the DOM.
+      // The hero video decides when to lift the intro curtain (see HeroReel).
+      // This is only a safety net: if the video never becomes ready, reveal the
+      // page after a max wait so it can never get stuck on the intro.
       (function () {
-        var hide = function () {
+        setTimeout(function () {
           var c = document.getElementById('intro-curtain');
-          if (!c) return;
-          setTimeout(function () {
+          if (c) {
             c.classList.add('hide');
             setTimeout(function () { c.remove(); }, 1200);
-          }, 450);
-        };
-        if (document.readyState === 'complete') hide();
-        else window.addEventListener('load', hide);
+          }
+        }, 12000);
       })();
     </script>
   </body>
