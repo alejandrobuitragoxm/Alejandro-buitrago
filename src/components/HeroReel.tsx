@@ -24,12 +24,26 @@ export const HeroReel: React.FC<HeroReelProps> = ({ featuredProject }) => {
     featuredProject?.thumbnailUrl ||
     'https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?q=80&w=1600&auto=format&fit=crop';
 
-  // Kick off playback as soon as we can, in case autoplay attribute is throttled.
+  // Safari/React gotcha: the `muted` attribute isn't always applied to the DOM
+  // property, so an unmuted video gets its autoplay blocked (browser shows a play
+  // button). Force muted = true imperatively, then start playback. Retry on a few
+  // events in case the first attempt is throttled.
   useEffect(() => {
     const v = videoRef.current;
     if (!v) return;
-    const tryPlay = () => v.play().catch(() => {});
+    const tryPlay = () => {
+      v.muted = true;
+      v.setAttribute('muted', '');
+      const p = v.play();
+      if (p && typeof p.catch === 'function') p.catch(() => {});
+    };
     tryPlay();
+    v.addEventListener('loadeddata', tryPlay);
+    v.addEventListener('canplay', tryPlay);
+    return () => {
+      v.removeEventListener('loadeddata', tryPlay);
+      v.removeEventListener('canplay', tryPlay);
+    };
   }, []);
 
   const toggleMute = () => {
