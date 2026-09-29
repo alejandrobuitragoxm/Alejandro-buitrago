@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Play, Award, Edit3, ArrowUpRight } from 'lucide-react';
+import { Play, Award, ArrowUpRight } from 'lucide-react';
 import { VideoProject } from '../types';
 
 interface ProjectTableIndexProps {
@@ -37,7 +37,7 @@ export const ProjectTableIndex: React.FC<ProjectTableIndexProps> = ({
               <th className="py-3 px-4 font-normal hidden md:table-cell">CATEGORY</th>
               <th className="py-3 px-4 font-normal hidden lg:table-cell">ROLES</th>
               <th className="py-3 px-4 font-normal hidden sm:table-cell">YEAR</th>
-              <th className="py-3 px-4 font-normal hidden xl:table-cell">CAMERA</th>
+              <th className="py-3 px-4 font-normal hidden xl:table-cell">LOCATION</th>
               <th className="py-3 px-4 font-normal text-right">ACTION</th>
             </tr>
           </thead>
@@ -93,20 +93,10 @@ export const ProjectTableIndex: React.FC<ProjectTableIndexProps> = ({
                   {proj.year}
                 </td>
                 <td className="py-4 px-4 text-zinc-500 hidden xl:table-cell truncate max-w-[200px]">
-                  {proj.cameraPackage || 'Arri / Red Cinema'}
+                  {proj.location || '—'}
                 </td>
                 <td className="py-4 px-4 text-right">
                   <div className="flex items-center justify-end gap-2">
-                    <button
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        onEdit(proj);
-                      }}
-                      className="p-1.5 rounded text-zinc-500 hover:text-white hover:bg-zinc-800 transition-colors"
-                      title="Edit project"
-                    >
-                      <Edit3 className="w-3.5 h-3.5" />
-                    </button>
                     <button
                       onClick={() => onSelect(proj)}
                       className="inline-flex items-center gap-1 text-zinc-400 group-hover:text-white font-semibold transition-colors"

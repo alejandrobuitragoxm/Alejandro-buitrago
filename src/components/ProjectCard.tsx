@@ -1,5 +1,5 @@
 import React, { useState, useRef } from 'react';
-import { Play, Award, Edit3, MapPin, Clock } from 'lucide-react';
+import { Play, Award, MapPin, Clock } from 'lucide-react';
 import { VideoProject } from '../types';
 
 interface ProjectCardProps {
@@ -156,17 +156,6 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, onSelect, onE
           </div>
 
           <div className="flex items-center gap-1">
-            {/* Quick Edit button */}
-            <button
-              onClick={(e) => {
-                e.stopPropagation();
-                onEdit(project);
-              }}
-              className="p-1.5 rounded text-zinc-500 hover:text-white hover:bg-zinc-800 transition-colors"
-              title="Editar este proyecto"
-            >
-              <Edit3 className="w-3.5 h-3.5" />
-            </button>
             <button
               onClick={() => onSelect(project)}
               className="text-[11px] font-mono-code uppercase text-zinc-400 group-hover:text-white flex items-center gap-1 transition-colors pl-1"

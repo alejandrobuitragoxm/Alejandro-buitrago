@@ -8,7 +8,6 @@ import {
   Clock,
   Calendar, 
   Maximize2, 
-  Edit3,
   Sparkles,
   Share2,
   Check,
@@ -121,17 +120,6 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
               16:9 FLAT
             </button>
           </div>
-
-          {/* Edit Project Button */}
-          <button
-            onClick={() => onEditProject(project)}
-            id="modal-edit-project-btn"
-            className="flex items-center gap-1.5 px-3 py-1.5 rounded-sm bg-zinc-900 hover:bg-zinc-800 border border-zinc-700 text-zinc-300 text-xs font-mono-code transition-colors"
-            title="Edit this project's info or video"
-          >
-            <Edit3 className="w-3.5 h-3.5 text-zinc-300" />
-            <span className="hidden md:inline">EDIT</span>
-          </button>
 
           {/* Share / Copy Link */}
           <button
