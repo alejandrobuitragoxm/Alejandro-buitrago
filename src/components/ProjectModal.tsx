@@ -31,7 +31,6 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
   onSelectProject,
   onEditProject,
 }) => {
-  const [aspectRatioMode, setAspectRatioMode] = useState<'scope' | 'standard'>('scope');
   const [copiedLink, setCopiedLink] = useState(false);
   const [selectedStill, setSelectedStill] = useState<string | null>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -95,32 +94,6 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
         </div>
 
         <div className="flex items-center gap-2">
-          {/* Aspect Ratio Switcher */}
-          <div className="hidden sm:flex items-center bg-zinc-900 rounded-sm border border-zinc-800 p-0.5 text-[10px] font-mono-code">
-            <button
-              onClick={() => setAspectRatioMode('scope')}
-              className={`px-2 py-1 rounded-sm transition-colors ${
-                aspectRatioMode === 'scope'
-                  ? 'bg-zinc-800 text-white font-semibold'
-                  : 'text-zinc-400 hover:text-white'
-              }`}
-              title="Anamorphic widescreen (2.39:1)"
-            >
-              2.39:1 SCOPE
-            </button>
-            <button
-              onClick={() => setAspectRatioMode('standard')}
-              className={`px-2 py-1 rounded-sm transition-colors ${
-                aspectRatioMode === 'standard'
-                  ? 'bg-zinc-800 text-white font-semibold'
-                  : 'text-zinc-400 hover:text-white'
-              }`}
-              title="Standard TV / Web (16:9)"
-            >
-              16:9 FLAT
-            </button>
-          </div>
-
           {/* Share / Copy Link */}
           <button
             onClick={handleCopyLink}
@@ -145,13 +118,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
       {/* Main Theater Container */}
       <div className="max-w-6xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-6 flex-1 flex flex-col">
         {/* Cinema Video Viewport */}
-        <div
-          className={`relative w-full bg-black rounded-sm overflow-hidden border border-zinc-800 shadow-2xl transition-all duration-500 mx-auto ${
-            aspectRatioMode === 'scope'
-              ? 'aspect-cinemascope max-w-5xl'
-              : 'aspect-video max-w-4xl'
-          }`}
-        >
+        <div className="relative w-full bg-black rounded-sm overflow-hidden border border-zinc-800 shadow-2xl mx-auto aspect-video max-w-4xl">
           {project.embedRestricted ? (
             /* Rights-restricted films can't play embedded — send viewers to YouTube */
             <div className="absolute inset-0">
