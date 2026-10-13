@@ -2,10 +2,9 @@
 // The API key lives ONLY in the RESEND_API_KEY environment variable (never in code).
 
 const TO_EMAIL = 'alejandro.buitrago.xm@gmail.com';
-// Resend's shared onboarding sender works without domain verification, but it can
-// only deliver to the email that owns the Resend account. Once a domain is
-// verified in Resend, swap this for e.g. "Portfolio <hello@yourdomain.com>".
-const FROM_EMAIL = 'Portfolio Contact <onboarding@resend.dev>';
+// Sends from the verified alejandrobuitrago.com domain (set up in Resend), so it
+// can deliver to any inbox — not just the Resend account owner's.
+const FROM_EMAIL = 'Alejandro Buitrago <contacto@alejandrobuitrago.com>';
 
 export default async function handler(req, res) {
   if (req.method !== 'POST') {
