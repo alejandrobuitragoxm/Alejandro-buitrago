@@ -34,7 +34,8 @@ export const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) =
       });
       if (!res.ok) {
         const data = await res.json().catch(() => ({}));
-        throw new Error(data.error || 'Something went wrong. Please try again.');
+        const msg = [data.error, data.detail].filter(Boolean).join(' — ');
+        throw new Error(msg || 'Something went wrong. Please try again.');
       }
       setSubmitted(true);
     } catch (err) {
