@@ -92,11 +92,15 @@
     background: linear-gradient(180deg, rgba(0,0,0,.15) 0%, rgba(0,0,0,0) 35%, rgba(0,0,0,.72) 100%);
   }
   .lang-toggle {
-    position: absolute; top: calc(16px + env(safe-area-inset-top)); right: 20px; z-index: 2;
-    height: 36px; padding: 0 14px; border-radius: 999px; border: 1px solid rgba(255,255,255,.4);
-    background: rgba(0,0,0,.2); color: #fff; font: 600 13px/1 var(--sans); letter-spacing: .06em;
-    cursor: pointer; -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px);
+    position: absolute; top: calc(16px + env(safe-area-inset-top)); right: 16px; z-index: 2;
+    display: inline-flex; align-items: center; gap: 8px;
+    height: 42px; padding: 0 18px 0 14px; border-radius: 999px; border: 0;
+    background: #fff; color: var(--ink); font: 600 15px/1 var(--sans);
+    box-shadow: 0 6px 20px -6px rgba(0,0,0,.45); cursor: pointer;
+    transition: transform .2s var(--ease);
   }
+  .lang-toggle:active { transform: scale(.96); }
+  .lang-toggle svg { width: 18px; height: 18px; flex: none; }
   .hero-inner { padding: 0 0 clamp(40px, 8vh, 80px); }
 
   /* Con foto de portada: la foto arriba y el texto debajo (en desktop, lado a lado) para no tapar la cara */
@@ -324,7 +328,10 @@
     <path d="M14 25 L58 62 M106 25 L62 62 M36 16 L58 62 M84 16 L62 62" stroke="#fff" stroke-width=".8" opacity=".7"/>
     <circle cx="60" cy="64" r="3.2" fill="#fff"/>
   </svg>
-  <button class="lang-toggle" id="langToggle" data-i18n="otroIdioma" data-i18n-aria="cambiarIdioma">EN</button>
+  <button class="lang-toggle" id="langToggle">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.7 3.8 5.7 3.8 9s-1.3 6.3-3.8 9c-2.5-2.7-3.8-5.7-3.8-9S9.5 5.7 12 3z"/></svg>
+    <span data-i18n="otroIdioma">Switch to English</span>
+  </button>
   <div class="wrap hero-inner">
     <p class="eyebrow" data-i18n="eyebrow">Paracas · Perú</p>
     <h1 data-i18n="h1">Hola, soy Alejandro. <em>Necesito tu ayuda.</em></h1>
@@ -476,8 +483,7 @@ const DATOS = {
 const TEXTOS = {
   es: {
     titulo: "Ayuda para Alejandro",
-    otroIdioma: "EN",
-    cambiarIdioma: "Switch to English",
+    otroIdioma: "Switch to English",
     eyebrow: "Paracas · Perú",
     h1: "Hola, soy Alejandro. <em>Necesito tu ayuda.</em>",
     lede: "Me fracturé una vértebra en un accidente de parapente y necesito una operación de urgencia. Tu aporte va directo a mi recuperación.",
@@ -525,8 +531,7 @@ const TEXTOS = {
   },
   en: {
     titulo: "Help for Alejandro",
-    otroIdioma: "ES",
-    cambiarIdioma: "Cambiar a español",
+    otroIdioma: "Switch to Spanish",
     eyebrow: "Paracas · Peru",
     h1: "Hi, I'm Alejandro. <em>I need your help.</em>",
     lede: "I fractured a vertebra in a paragliding accident and need emergency surgery. Your support goes straight to my recovery.",
