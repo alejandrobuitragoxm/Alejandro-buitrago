@@ -94,13 +94,13 @@
   .lang-toggle {
     position: absolute; top: calc(16px + env(safe-area-inset-top)); right: 16px; z-index: 2;
     display: inline-flex; align-items: center; gap: 8px;
-    height: 42px; padding: 0 18px 0 14px; border-radius: 999px; border: 0;
-    background: #fff; color: var(--ink); font: 600 15px/1 var(--sans);
-    box-shadow: 0 6px 20px -6px rgba(0,0,0,.45); cursor: pointer;
+    height: 48px; padding: 0 20px 0 16px; border-radius: 999px; border: 0;
+    background: var(--accent); color: var(--accent-ink); font: 600 16px/1 var(--sans);
+    box-shadow: 0 10px 30px -10px rgba(232,84,42,.7); cursor: pointer;
     transition: transform .2s var(--ease);
   }
   .lang-toggle:active { transform: scale(.96); }
-  .lang-toggle svg { width: 18px; height: 18px; flex: none; }
+  .lang-toggle svg { width: 20px; height: 20px; flex: none; }
   .hero-inner { padding: 0 0 clamp(40px, 8vh, 80px); }
 
   /* Con foto de portada: la foto arriba y el texto debajo (en desktop, lado a lado) para no tapar la cara */
@@ -529,7 +529,7 @@ const TEXTOS = {
   },
   en: {
     titulo: "Help for Alejandro",
-    otroIdioma: "Switch to Spanish",
+    otroIdioma: "Cambiar a español",
     h1: "Hi, I'm Alejandro. <em>I need your help.</em>",
     lede: "I fractured a vertebra in a paragliding accident and need emergency surgery. Your support goes straight to my recovery.",
     cta: "I want to help",
