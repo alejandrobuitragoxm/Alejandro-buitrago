@@ -1,0 +1,783 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Ayuda para Alejandro</title>
+<meta name="description" content="Me fracturé una vértebra en un accidente de parapente en Paracas y necesito una operación de urgencia. Tu aporte va directo a mi recuperación.">
+<meta name="theme-color" content="#16130F">
+
+<!-- Vista previa al compartir por WhatsApp / Instagram / Facebook (necesita URLs completas) -->
+<meta property="og:url" content="https://www.alejandrobuitrago.com/ayuda/">
+<meta property="og:title" content="Ayuda para Alejandro">
+<meta property="og:description" content="Me fracturé una vértebra en un accidente de parapente en Paracas y necesito una operación de urgencia. Tu aporte va directo a mi recuperación.">
+<meta property="og:image" content="https://www.alejandrobuitrago.com/ayuda/fotos/portada.jpg">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+
+<!-- Idioma: ?lang=en o ?lang=es en el link salta la pregunta; si ya eligió antes, también -->
+<script>
+(function () {
+  var l = null;
+  try { l = new URLSearchParams(location.search).get("lang"); } catch (e) {}
+  if (l !== "es" && l !== "en") { try { l = localStorage.getItem("idioma"); } catch (e) { l = null; } }
+  if (l !== "es" && l !== "en") l = null;
+  window.IDIOMA_INICIAL = l;
+  document.documentElement.classList.add(l ? "sin-intro" : "intro");
+})();
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --bg: #F6F2EC;
+    --card: #FFFFFF;
+    --ink: #16130F;
+    --muted: #6B645B;
+    --line: #E5DED4;
+    --accent: #E8542A;
+    --accent-ink: #FFFFFF;
+    --radius: 22px;
+    --serif: "Instrument Serif", Georgia, serif;
+    --sans: "Inter", system-ui, -apple-system, sans-serif;
+    --ease: cubic-bezier(.2, .8, .2, 1);
+    --cielo: linear-gradient(180deg, #1B2A44 0%, #4A3B5C 45%, #C7643C 82%, #E8A15A 100%);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+  body {
+    background: var(--bg); color: var(--ink);
+    font: 400 17px/1.6 var(--sans);
+    -webkit-font-smoothing: antialiased;
+    -webkit-tap-highlight-color: transparent;
+  }
+  img, video { display: block; max-width: 100%; }
+  a { color: inherit; }
+  .wrap { width: min(1080px, 100% - 40px); margin-inline: auto; }
+
+  /* ---------- Pantalla de idioma ---------- */
+  html.intro body { overflow: hidden; }
+  .sin-intro .idioma { display: none; }
+  .idioma {
+    position: fixed; inset: 0; z-index: 200; display: grid; place-items: center; padding: 24px;
+    background: var(--cielo); color: #fff; text-align: center;
+    transition: opacity .5s var(--ease), visibility .5s;
+  }
+  .idioma.fuera { opacity: 0; visibility: hidden; }
+  .idioma-inner { width: min(340px, 100%); animation: entrar .8s var(--ease) both; }
+  @keyframes entrar { from { opacity: 0; transform: translateY(16px); } }
+  .idioma svg { width: 96px; margin: 0 auto 30px; opacity: .9; }
+  .idioma .eyebrow { margin-bottom: 10px; }
+  .idioma h2 { font: 400 clamp(38px, 9vw, 56px)/1.02 var(--serif); margin: 0 0 10px; color: #fff; }
+  .idioma h2 em { color: #FFC9A8; }
+  .idioma p { opacity: .75; margin-bottom: 34px; font-size: 16px; }
+  .idioma .botones { display: grid; gap: 12px; }
+  .idioma .btn { width: 100%; }
+  .idioma .btn.claro { background: #fff; color: var(--ink); box-shadow: none; }
+
+  /* ---------- Hero ---------- */
+  .hero {
+    position: relative; min-height: 92svh; display: flex; align-items: flex-end;
+    color: #fff; overflow: hidden; isolation: isolate;
+    background: var(--cielo);
+  }
+  .hero-media { position: absolute; inset: 0; z-index: -2; }
+  .hero-media img, .hero-media video { width: 100%; height: 100%; object-fit: cover; }
+  .hero-glider { position: absolute; top: 18%; right: 12%; width: 120px; opacity: .85; z-index: -2; }
+  .hero::after {
+    content: ""; position: absolute; inset: 0; z-index: -1;
+    background: linear-gradient(180deg, rgba(0,0,0,.15) 0%, rgba(0,0,0,0) 35%, rgba(0,0,0,.72) 100%);
+  }
+  .lang-toggle {
+    position: absolute; top: calc(16px + env(safe-area-inset-top)); right: 20px; z-index: 2;
+    height: 36px; padding: 0 14px; border-radius: 999px; border: 1px solid rgba(255,255,255,.4);
+    background: rgba(0,0,0,.2); color: #fff; font: 600 13px/1 var(--sans); letter-spacing: .06em;
+    cursor: pointer; -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px);
+  }
+  .hero-inner { padding: 0 0 clamp(40px, 8vh, 80px); }
+
+  /* Con foto de portada: la foto arriba y el texto debajo (en desktop, lado a lado) para no tapar la cara */
+  .hero.con-foto { display: block; min-height: 0; background: var(--ink); }
+  .hero.con-foto::after { display: none; }
+  .hero.con-foto .hero-media { position: relative; z-index: 0; height: 64svh; }
+  .hero.con-foto .hero-media img, .hero.con-foto .hero-media video { object-position: center 25%; }
+  .hero.con-foto .hero-media::after {
+    content: ""; position: absolute; inset: 0;
+    background: linear-gradient(180deg, rgba(22,19,15,.25) 0%, rgba(22,19,15,0) 20%, rgba(22,19,15,0) 65%, var(--ink) 100%);
+  }
+  .hero.con-foto .hero-inner { position: relative; margin-top: -36px; padding-top: 0; }
+  @media (min-width: 860px) {
+    .hero.con-foto { display: grid; grid-template-columns: 1.1fr 1fr; min-height: 92svh; align-items: center; }
+    .hero.con-foto .hero-media { grid-column: 2; grid-row: 1; height: 100%; min-height: 92svh; }
+    .hero.con-foto .hero-media::after { background: linear-gradient(90deg, var(--ink) 0%, rgba(22,19,15,0) 28%); }
+    .hero.con-foto .hero-inner {
+      grid-column: 1; grid-row: 1; width: auto; margin: 0;
+      padding: 64px 48px 64px max(24px, calc(50vw - 540px));
+    }
+  }
+
+  /* Imágenes del diagnóstico dentro de la historia */
+  .diagnostico { display: grid; gap: 12px; margin: 8px 0 32px; }
+  .diagnostico figure { border-radius: 18px; overflow: hidden; background: #16130F; }
+  .diagnostico img { width: 100%; height: auto; }
+  .diagnostico figcaption { padding: 10px 14px 12px; color: rgba(255,255,255,.7); font-size: 14px; }
+  .eyebrow { font-size: 13px; letter-spacing: .14em; text-transform: uppercase; opacity: .85; margin-bottom: 14px; }
+  h1 {
+    font: 400 clamp(46px, 9vw, 104px)/.98 var(--serif);
+    letter-spacing: -.015em; max-width: 12ch; text-wrap: balance;
+  }
+  h1 em { font-style: italic; color: #FFC9A8; }
+  .lede { font-size: clamp(17px, 2vw, 20px); max-width: 34ch; margin: 20px 0 30px; opacity: .92; }
+
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+    min-height: 56px; padding: 0 30px; border-radius: 999px; border: 0;
+    background: var(--accent); color: var(--accent-ink);
+    font: 600 17px/1 var(--sans); text-decoration: none; cursor: pointer;
+    box-shadow: 0 10px 30px -10px rgba(232,84,42,.7);
+    transition: transform .2s var(--ease), box-shadow .2s var(--ease);
+  }
+  .btn:active { transform: scale(.97); }
+  @media (hover: hover) { .btn:hover { transform: translateY(-2px); } }
+  .btn.ghost { background: transparent; color: var(--ink); box-shadow: inset 0 0 0 1.5px var(--ink); }
+
+  /* ---------- Secciones ---------- */
+  section { padding: clamp(72px, 12vw, 128px) 0; }
+  h2 { font: 400 clamp(36px, 5.5vw, 60px)/1.05 var(--serif); letter-spacing: -.01em; margin-bottom: 28px; text-wrap: balance; }
+  h2 em { font-style: italic; color: var(--accent); }
+  .kicker { font-size: 13px; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); margin-bottom: 12px; }
+
+  .story .wrap { max-width: 660px; }
+  .story p { font-size: clamp(18px, 2.2vw, 21px); margin-bottom: 1.1em; color: #2A251F; }
+  .story .firma { font: italic 400 28px/1.2 var(--serif); color: var(--ink); margin-top: 28px; }
+
+  /* ---------- Donar ---------- */
+  #donar { background: var(--ink); color: #fff; border-radius: 32px 32px 0 0; }
+  #donar .kicker { color: rgba(255,255,255,.55); }
+  #donar h2 em { color: #FF8A5C; }
+  .opciones { display: grid; gap: 14px; margin-top: 8px; }
+  @media (min-width: 860px) { .opciones { grid-template-columns: repeat(3, 1fr); gap: 18px; } }
+  html[lang="en"] .opcion.gfm { order: -1; } /* en inglés, GoFundMe primero */
+  .opcion {
+    display: flex; align-items: center; gap: 18px; width: 100%; text-align: left;
+    padding: 22px; border-radius: var(--radius); border: 1px solid rgba(255,255,255,.12);
+    background: rgba(255,255,255,.05); color: #fff; font: inherit; text-decoration: none; cursor: pointer;
+    transition: background .2s var(--ease), border-color .2s var(--ease), transform .2s var(--ease);
+  }
+  .opcion:active { transform: scale(.98); }
+  @media (hover: hover) { .opcion:hover { background: rgba(255,255,255,.1); border-color: rgba(255,255,255,.3); } }
+  @media (min-width: 860px) {
+    .opcion { flex-direction: column; align-items: flex-start; padding: 30px; min-height: 260px; }
+    .opcion .chev { margin-top: auto; }
+  }
+  .opcion .ico {
+    flex: none; width: 54px; height: 54px; border-radius: 16px; display: grid; place-items: center;
+    background: #fff; color: var(--ink);
+  }
+  .opcion .ico svg { width: 26px; height: 26px; }
+  .opcion.peru .ico { background: #742284; color: #fff; }      /* morado Yape */
+  .opcion.gfm  .ico { background: #02A95C; color: #fff; }      /* verde GoFundMe */
+  .opcion.wise .ico { background: #9FE870; color: #163300; }    /* verde Wise */
+  .opcion .txt { flex: 1; min-width: 0; }
+  .opcion strong { display: block; font-size: 20px; font-weight: 600; margin-bottom: 2px; }
+  .opcion span { color: rgba(255,255,255,.65); font-size: 15px; }
+  .opcion .chev { flex: none; width: 22px; height: 22px; opacity: .6; }
+  .opcion[aria-disabled="true"] { opacity: .45; pointer-events: none; }
+  .nota-donar { margin-top: 28px; color: rgba(255,255,255,.55); font-size: 15px; }
+
+  /* ---------- Galería ---------- */
+  .galeria { background: var(--ink); color: #fff; padding-top: 0; }
+  .galeria .kicker { color: rgba(255,255,255,.55); }
+  /* Filas de alto fijo (4:5 de una columna); "alta" ocupa 2 filas y "ancha" 2 columnas. dense rellena huecos */
+  .galeria .wrap { container-type: inline-size; }
+  .grid {
+    display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; grid-auto-flow: row dense;
+    grid-auto-rows: 260px; grid-auto-rows: calc((100cqw - 10px) / 2 * 1.25);
+  }
+  @media (min-width: 860px) {
+    .grid { grid-template-columns: repeat(3, 1fr); gap: 14px; grid-auto-rows: calc((100cqw - 28px) / 3 * 1.25); }
+  }
+  .tile { position: relative; border-radius: 18px; overflow: hidden; background: #2A2520; }
+  .tile.alta { grid-row: span 2; }
+  .tile.ancha { grid-column: span 2; }
+  @media (max-width: 859px) { .tile.ancha-movil { grid-column: span 2; } }
+  .tile > * { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  .ph {
+    display: grid; place-items: center; color: rgba(255,255,255,.35); font-size: 14px;
+    background: linear-gradient(135deg, #2A2520, #3A2E28);
+  }
+
+  /* ---------- Compartir ---------- */
+  .compartir { text-align: center; }
+  .compartir p { color: var(--muted); max-width: 36ch; margin: 0 auto 30px; font-size: 18px; }
+  footer { padding: 40px 0 120px; text-align: center; color: var(--muted); font-size: 14px; border-top: 1px solid var(--line); }
+  footer a { color: var(--ink); }
+
+  /* ---------- Botón flotante ---------- */
+  .flotante {
+    position: fixed; left: 50%; bottom: calc(18px + env(safe-area-inset-bottom)); z-index: 20;
+    transform: translate(-50%, 140%); opacity: 0;
+    transition: transform .35s var(--ease), opacity .35s var(--ease);
+  }
+  .flotante.on { transform: translate(-50%, 0); opacity: 1; }
+
+  /* ---------- Hojas (dialogs) ---------- */
+  dialog {
+    border: 0; padding: 0; background: var(--card); color: var(--ink);
+    width: min(520px, 100%); max-width: 100%; max-height: 88svh;
+    margin: auto auto 0; border-radius: 28px 28px 0 0;
+    overscroll-behavior: contain;
+  }
+  @media (min-width: 640px) { dialog { margin: auto; border-radius: 28px; max-height: 86vh; } }
+  dialog[open] { animation: subir .4s var(--ease); }
+  dialog::backdrop { background: rgba(10,8,6,.55); backdrop-filter: blur(4px); }
+  @keyframes subir { from { transform: translateY(40px); opacity: 0; } }
+  .sheet-head {
+    position: sticky; top: 0; background: var(--card); z-index: 1;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 22px 22px 14px; border-bottom: 1px solid var(--line);
+  }
+  .sheet-head h3 { font: 400 30px/1 var(--serif); }
+  .cerrar {
+    width: 40px; height: 40px; border-radius: 50%; border: 0; background: #F0EBE4;
+    display: grid; place-items: center; cursor: pointer; color: var(--ink);
+  }
+  .sheet-body { padding: 18px 22px 30px; }
+  .bloque { padding: 18px 0; border-bottom: 1px solid var(--line); }
+  .bloque:last-child { border-bottom: 0; }
+  .bloque h4 { font-size: 13px; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); font-weight: 600; margin-bottom: 12px; }
+  .bloque .sub { color: var(--muted); font-size: 14px; margin: -6px 0 12px; }
+  .qr {
+    width: 220px; aspect-ratio: 1; margin: 4px auto 16px; border-radius: 18px; overflow: hidden;
+    background: #fff; border: 1px solid var(--line); display: grid; place-items: center; padding: 12px;
+  }
+  .qr img, .qr canvas { width: 100%; height: 100%; object-fit: contain; }
+  .qr .ph { width: 100%; height: 100%; border-radius: 10px; background: #F0EBE4; color: var(--muted); text-align: center; padding: 10px; }
+
+  .fila {
+    display: flex; align-items: center; gap: 12px; padding: 12px 14px; margin-top: 8px;
+    border-radius: 14px; background: #F6F2EC;
+  }
+  .fila .dato { flex: 1; min-width: 0; }
+  .fila small { display: block; font-size: 12px; color: var(--muted); }
+  .fila code {
+    display: block; font: 500 16px/1.35 ui-monospace, "SF Mono", Menlo, monospace;
+    overflow-wrap: anywhere; color: var(--ink);
+  }
+  .copiar {
+    flex: none; min-width: 84px; height: 40px; padding: 0 14px; border-radius: 999px; border: 0;
+    background: var(--ink); color: #fff; font: 600 14px/1 var(--sans); cursor: pointer;
+    transition: transform .15s var(--ease), background .2s;
+  }
+  .copiar:active { transform: scale(.95); }
+  .copiar.ok { background: #02A95C; }
+  .copiar:disabled { background: #CFC7BC; cursor: default; }
+  .pend { color: #B4552F; font-style: normal; }
+
+  /* ---------- Toast ---------- */
+  .toast {
+    position: fixed; left: 50%; top: calc(18px + env(safe-area-inset-top)); z-index: 300;
+    transform: translate(-50%, -150%); background: var(--ink); color: #fff;
+    padding: 12px 20px; border-radius: 999px; font-size: 15px; font-weight: 500;
+    transition: transform .35s var(--ease);
+  }
+  .toast.on { transform: translate(-50%, 0); }
+
+  .reveal { opacity: 0; transform: translateY(24px); transition: opacity .8s var(--ease), transform .8s var(--ease); }
+  .reveal.in { opacity: 1; transform: none; }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation: none !important; transition: none !important; }
+    .reveal { opacity: 1; transform: none; }
+    html { scroll-behavior: auto; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ================= PANTALLA DE IDIOMA ================= -->
+<div class="idioma" id="idioma" role="dialog" aria-modal="true" aria-labelledby="tIdioma">
+  <div class="idioma-inner">
+    <svg viewBox="0 0 120 70" fill="none" aria-hidden="true">
+      <path d="M6 22 C30 2, 90 2, 114 22 L108 26 C86 12, 34 12, 12 26 Z" fill="#fff"/>
+      <path d="M14 25 L58 62 M106 25 L62 62 M36 16 L58 62 M84 16 L62 62" stroke="#fff" stroke-width=".8" opacity=".7"/>
+      <circle cx="60" cy="64" r="3.2" fill="#fff"/>
+    </svg>
+    <p class="eyebrow">Alejandro · Paracas</p>
+    <h2 id="tIdioma">¿Español <em>o English?</em></h2>
+    <p>Elige tu idioma · Choose your language</p>
+    <div class="botones">
+      <button class="btn" data-idioma="es">Español</button>
+      <button class="btn claro" data-idioma="en">English</button>
+    </div>
+  </div>
+</div>
+
+<!-- ================= HERO ================= -->
+<header class="hero">
+  <div class="hero-media" id="heroMedia"></div>
+  <!-- Ala de parapente decorativa: se ve solo mientras no haya foto de portada -->
+  <svg class="hero-glider" id="heroGlider" viewBox="0 0 120 70" fill="none" aria-hidden="true">
+    <path d="M6 22 C30 2, 90 2, 114 22 L108 26 C86 12, 34 12, 12 26 Z" fill="#fff"/>
+    <path d="M14 25 L58 62 M106 25 L62 62 M36 16 L58 62 M84 16 L62 62" stroke="#fff" stroke-width=".8" opacity=".7"/>
+    <circle cx="60" cy="64" r="3.2" fill="#fff"/>
+  </svg>
+  <button class="lang-toggle" id="langToggle" data-i18n="otroIdioma" data-i18n-aria="cambiarIdioma">EN</button>
+  <div class="wrap hero-inner">
+    <p class="eyebrow" data-i18n="eyebrow">Paracas · Perú</p>
+    <h1 data-i18n="h1">Hola, soy Alejandro. <em>Necesito tu ayuda.</em></h1>
+    <p class="lede" data-i18n="lede">Me fracturé una vértebra en un accidente de parapente y necesito una operación de urgencia. Tu aporte va directo a mi recuperación.</p>
+    <a class="btn" href="#donar" data-i18n="cta">Quiero ayudar</a>
+  </div>
+</header>
+
+<!-- ================= HISTORIA ================= -->
+<section class="story">
+  <div class="wrap reveal">
+    <h2 data-i18n="historiaH2">Mi historia</h2>
+    <p data-i18n="historia1">Me llamo Alejandro. Desde muy chiquito soñé con volar, y hace poco lo logré a través de varios deportes. El aire es uno de los lugares donde más feliz me siento: el parapente me encanta, me impulsa a descubrir nuevos sitios y a vivir nuevas aventuras.</p>
+    <p data-i18n="historia2">Lamentablemente, el martes 20 de octubre, volando en Paracas, tuve un accidente y me fracturé una vértebra de la columna.</p>
+    <div class="diagnostico">
+      <figure>
+        <img src="fotos/diagnostico-1.jpg" alt="Placas de la columna con la vértebra fracturada marcada en rojo" loading="lazy" width="1005" height="760">
+        <figcaption data-i18n="diagLeyenda1">En rojo, la vértebra fracturada.</figcaption>
+      </figure>
+      <figure>
+        <img src="fotos/diagnostico-2.jpg" alt="Tomografía de la vértebra fracturada" loading="lazy" width="950" height="675">
+        <figcaption data-i18n="diagLeyenda2">Tomografía del 24 de octubre.</figcaption>
+      </figure>
+    </div>
+    <p data-i18n="historiaOperacion">Los médicos me dijeron que necesito operarme de urgencia.</p>
+    <p data-i18n="historia3">La operación, los gastos médicos, el tratamiento y la rehabilitación son mucho más de lo que puedo cubrir solo, y por un tiempo no voy a poder trabajar.</p>
+    <p data-i18n="historia4">No me gusta pedir este tipo de ayuda económica, pero esta vez me veo obligado a hacerlo. De antemano, muchísimas gracias por cualquier aporte, por más pequeño que sea. Y si no puedes donar, compartir esta página también me ayuda muchísimo.</p>
+    <p class="firma" data-i18n="firma">Muchísimas gracias,<br>Alejandro</p>
+  </div>
+</section>
+
+<!-- ================= DONAR ================= -->
+<section id="donar">
+  <div class="wrap">
+    <p class="kicker" data-i18n="donarKicker">Elige cómo ayudar</p>
+    <h2 data-i18n="donarH2">Tres formas de <em>donar.</em></h2>
+
+    <div class="opciones">
+      <button class="opcion peru" data-abrir="hojaPeru">
+        <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="2" width="12" height="20" rx="3"/><path d="M11 18h2"/></svg></span>
+        <span class="txt"><strong data-i18n="peruT">Desde Perú</strong><span data-i18n="peruS">Yape o transferencia bancaria</span></span>
+        <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg>
+      </button>
+
+      <a class="opcion gfm" id="linkGfm" target="_blank" rel="noopener">
+        <span class="ico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 21s-7.5-4.6-9.5-9.2C1.1 8.5 3.3 5 6.8 5c2 0 3.6 1.1 4.4 2.6h1.6C13.6 6.1 15.2 5 17.2 5c3.5 0 5.7 3.5 4.3 6.8C19.5 16.4 12 21 12 21z"/></svg></span>
+        <span class="txt"><strong>GoFundMe</strong><span id="gfmSub">Desde cualquier país, con tarjeta</span></span>
+        <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M9 7h8v8"/></svg>
+      </a>
+
+      <button class="opcion wise" data-abrir="hojaWise">
+        <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.7 3.8 5.7 3.8 9s-1.3 6.3-3.8 9c-2.5-2.7-3.8-5.7-3.8-9S9.5 5.7 12 3z"/></svg></span>
+        <span class="txt"><strong>Wise</strong><span data-i18n="wiseS">Transferencia internacional</span></span>
+        <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg>
+      </button>
+    </div>
+
+    <p class="nota-donar" data-i18n="notaDonar">Todo lo que recibo va a mi tratamiento médico y rehabilitación.</p>
+  </div>
+</section>
+
+<!-- ================= GALERÍA ================= -->
+<section class="galeria">
+  <div class="wrap">
+    <p class="kicker" data-i18n="galeriaKicker">Lo que quiero recuperar</p>
+    <div class="grid" id="grid"></div>
+  </div>
+</section>
+
+<!-- ================= COMPARTIR ================= -->
+<section class="compartir">
+  <div class="wrap reveal">
+    <h2 data-i18n="compartirH2">Compartir <em>también ayuda.</em></h2>
+    <p data-i18n="compartirP">Si no puedes donar, envía esta página a alguien que pueda. Llega más lejos de lo que crees.</p>
+    <button class="btn ghost" id="btnCompartir">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12v7a2 2 0 002 2h12a2 2 0 002-2v-7M16 6l-4-4-4 4M12 2v14"/></svg>
+      <span data-i18n="compartirBtn">Compartir página</span>
+    </button>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap" id="pie"><span data-i18n="pie">Gracias por estar. — Alejandro</span></div>
+</footer>
+
+<a class="btn flotante" id="flotante" href="#donar" data-i18n="cta">Quiero ayudar</a>
+
+<!-- ================= HOJA: PERÚ ================= -->
+<dialog id="hojaPeru" aria-labelledby="tPeru">
+  <div class="sheet-head"><h3 id="tPeru" data-i18n="peruT">Desde Perú</h3><button class="cerrar" data-cerrar data-i18n-aria="cerrar" aria-label="Cerrar"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
+  <div class="sheet-body" id="cuerpoPeru"></div>
+</dialog>
+
+<!-- ================= HOJA: WISE ================= -->
+<dialog id="hojaWise" aria-labelledby="tWise">
+  <div class="sheet-head"><h3 id="tWise">Wise</h3><button class="cerrar" data-cerrar data-i18n-aria="cerrar" aria-label="Cerrar"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
+  <div class="sheet-body" id="cuerpoWise"></div>
+</dialog>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+/* =====================================================================
+   DATOS — Todo lo que hay que cambiar está aquí.
+   Lo que diga "PENDIENTE" aparece como pendiente y no se puede copiar.
+   ===================================================================== */
+const DATOS = {
+  titular: "Alejandro Fabio Buitrago Zegarra",
+
+  yape: {
+    numero: "970886839",
+    qr: "fotos/yape-qr.png"
+  },
+
+  bancos: [
+    { banco: "BCP · Soles",   tipo: { es: "Cuenta en soles (S/)",     en: "Account in Peruvian soles (S/)" }, numero: "19493010877079", cci: "00219419301087707990" },
+    { banco: "BCP · Dólares", tipo: { es: "Cuenta en dólares (US$)", en: "Account in US dollars (US$)" },    numero: "19406735139169", cci: "00219410673513916991" }
+  ],
+
+  gofundme: "https://gofund.me/3e54baa12",
+
+  wise: {
+    usuario: "@alejandrob1265",
+    link: "https://wise.com/pay/me/alejandrob1265",
+    qr: "fotos/wise-qr.png"
+  },
+
+  // Portada: foto o video. Si el archivo no existe se ve el degradado de atardecer.
+  portada: { tipo: "foto", src: "fotos/portada.jpg" },
+
+  // Galería. forma: "alta" (2 filas) o "ancha" (2 columnas); pos: qué parte de la foto se ve.
+  // "ancha-movil" es ancha solo en celular. Con 7 fotos así cuadra sin huecos en los dos tamaños.
+  galeria: [
+    { tipo: "foto", src: "fotos/galeria-1.jpg", forma: "alta", pos: "15% center" },       // vuelo al atardecer
+    { tipo: "foto", src: "fotos/galeria-2.jpg" },                                         // entre las rocas
+    { tipo: "foto", src: "fotos/galeria-3.jpg" },                                         // hueco en la roca
+    { tipo: "foto", src: "fotos/galeria-4.jpg", forma: "ancha" },                         // selfie con el parapente
+    { tipo: "foto", src: "fotos/galeria-5.jpg", pos: "64% center" },                      // piscina en la selva
+    { tipo: "foto", src: "fotos/galeria-7.jpg", forma: "ancha-movil", pos: "right 40%" },  // carro con amigos
+    { tipo: "foto", src: "fotos/galeria-6.jpg", pos: "left center" }                      // sofá con el perro
+  ],
+
+  contacto: { instagram: "", whatsapp: "" }   // ej. instagram: "tuusuario", whatsapp: "51987654321"
+};
+
+/* =====================================================================
+   TEXTOS — español / inglés
+   ===================================================================== */
+const TEXTOS = {
+  es: {
+    titulo: "Ayuda para Alejandro",
+    otroIdioma: "EN",
+    cambiarIdioma: "Switch to English",
+    eyebrow: "Paracas · Perú",
+    h1: "Hola, soy Alejandro. <em>Necesito tu ayuda.</em>",
+    lede: "Me fracturé una vértebra en un accidente de parapente y necesito una operación de urgencia. Tu aporte va directo a mi recuperación.",
+    cta: "Quiero ayudar",
+    historiaH2: "Mi historia",
+    historia1: "Me llamo Alejandro. Desde muy chiquito soñé con volar, y hace poco lo logré a través de varios deportes. El aire es uno de los lugares donde más feliz me siento: el parapente me encanta, me impulsa a descubrir nuevos sitios y a vivir nuevas aventuras.",
+    historia2: "Lamentablemente, el martes 20 de octubre, volando en Paracas, tuve un accidente y me fracturé una vértebra de la columna.",
+    diagLeyenda1: "En rojo, la vértebra fracturada.",
+    diagLeyenda2: "Tomografía del 24 de octubre.",
+    historiaOperacion: "Los médicos me dijeron que necesito operarme de urgencia.",
+    historia3: "La operación, los gastos médicos, el tratamiento y la rehabilitación son mucho más de lo que puedo cubrir solo, y por un tiempo no voy a poder trabajar.",
+    historia4: "No me gusta pedir este tipo de ayuda económica, pero esta vez me veo obligado a hacerlo. De antemano, muchísimas gracias por cualquier aporte, por más pequeño que sea. Y si no puedes donar, compartir esta página también me ayuda muchísimo.",
+    firma: "Muchísimas gracias,<br>Alejandro",
+    donarKicker: "Elige cómo ayudar",
+    donarH2: "Tres formas de <em>donar.</em>",
+    wiseS: "Transferencia internacional",
+    wiseComo: "Desde cualquier país: abre el link o escanea el QR con la app de Wise.",
+    wiseAbrir: "Donar con Wise",
+    wiseUsuario: "Usuario de Wise",
+    qrWise: "QR de Wise",
+    peruT: "Desde Perú",
+    peruS: "Yape o transferencia bancaria",
+    gfmS: "Desde cualquier país, con tarjeta",
+    gfmPronto: "Muy pronto",
+    notaDonar: "Todo lo que recibo va a mi tratamiento médico y rehabilitación.",
+    galeriaKicker: "Lo que quiero recuperar",
+    compartirH2: "Compartir <em>también ayuda.</em>",
+    compartirP: "Si no puedes donar, envía esta página a alguien que pueda. Llega más lejos de lo que crees.",
+    compartirBtn: "Compartir página",
+    compartirTexto: "Alejandro tuvo un accidente en parapente y necesita una operación de urgencia. Puedes ayudarlo aquí:",
+    pie: "Gracias por estar. — Alejandro",
+    cerrar: "Cerrar",
+    numYape: "Número de Yape",
+    aNombre: "A nombre de",
+    numCuenta: "Número de cuenta",
+    cci: "CCI (desde otros bancos)",
+    copiar: "Copiar",
+    copiado: "Copiado",
+    copiadoToast: "Copiado ✓",
+    linkCopiado: "Link copiado ✓",
+    pendiente: "Pendiente",
+    qrYape: "Aquí va tu QR de Yape",
+    foto: "Foto {x}",
+    video: "Video {x}"
+  },
+  en: {
+    titulo: "Help for Alejandro",
+    otroIdioma: "ES",
+    cambiarIdioma: "Cambiar a español",
+    eyebrow: "Paracas · Peru",
+    h1: "Hi, I'm Alejandro. <em>I need your help.</em>",
+    lede: "I fractured a vertebra in a paragliding accident and need emergency surgery. Your support goes straight to my recovery.",
+    cta: "I want to help",
+    historiaH2: "My story",
+    historia1: "My name is Alejandro. Ever since I was a little kid I dreamed of flying, and recently I made that dream come true through several sports. The air is one of the places where I feel happiest: I love paragliding, and it pushes me to discover new places and go on new adventures.",
+    historia2: "Unfortunately, on Tuesday, October 20, while flying in Paracas, Peru, I had an accident and fractured a vertebra in my spine.",
+    diagLeyenda1: "In red, the fractured vertebra.",
+    diagLeyenda2: "CT scan, October 24.",
+    historiaOperacion: "The doctors told me I need emergency surgery.",
+    historia3: "The surgery, medical bills, treatment and rehab are far more than I can cover on my own, and I won't be able to work for a while.",
+    historia4: "I don't like asking for financial help like this, but this time I have no other choice. Thank you so much in advance for any contribution, no matter how small. And if you can't donate, sharing this page helps me enormously.",
+    firma: "Thank you so much,<br>Alejandro",
+    donarKicker: "Choose how to help",
+    donarH2: "Three ways to <em>give.</em>",
+    wiseS: "International transfer",
+    wiseComo: "From any country: open the link or scan the QR with the Wise app.",
+    wiseAbrir: "Give with Wise",
+    wiseUsuario: "Wise username",
+    qrWise: "Wise QR",
+    peruT: "From Peru",
+    peruS: "Yape or bank transfer",
+    gfmS: "From any country, by card",
+    gfmPronto: "Coming soon",
+    notaDonar: "Everything I receive goes to my medical treatment and rehabilitation.",
+    galeriaKicker: "What I want to get back to",
+    compartirH2: "Sharing <em>helps too.</em>",
+    compartirP: "If you can't donate, send this page to someone who can. It reaches further than you think.",
+    compartirBtn: "Share this page",
+    compartirTexto: "Alejandro had a paragliding accident and needs emergency surgery. You can help him here:",
+    pie: "Thank you for being here. — Alejandro",
+    cerrar: "Close",
+    numYape: "Yape number",
+    aNombre: "Account holder",
+    numCuenta: "Account number",
+    cci: "CCI (interbank code)",
+    copiar: "Copy",
+    copiado: "Copied",
+    copiadoToast: "Copied ✓",
+    linkCopiado: "Link copied ✓",
+    pendiente: "Pending",
+    qrYape: "Your Yape QR goes here",
+    foto: "Photo {x}",
+    video: "Video {x}"
+  }
+};
+
+/* ===================================================================== */
+let idioma = window.IDIOMA_INICIAL || "es";
+const t = (k, x = "") => (TEXTOS[idioma][k] ?? TEXTOS.es[k] ?? k).replace("{x}", x);
+const $ = (s, el = document) => el.querySelector(s);
+const pendiente = v => !v || /PENDIENTE/i.test(v);
+const esc = s => String(s).replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]);
+
+function fila(label, valor) {
+  const p = pendiente(valor);
+  return `<div class="fila">
+    <div class="dato"><small>${esc(label)}</small><code>${p ? `<em class="pend">${t("pendiente")}</em>` : esc(valor)}</code></div>
+    <button class="copiar" ${p ? "disabled" : `data-copiar="${esc(valor.replace(/\s+/g, " ").trim())}"`}>${t("copiar")}</button>
+  </div>`;
+}
+
+function placeholder(key, x) {
+  const d = document.createElement("div");
+  d.className = "ph";
+  d.dataset.phKey = key;
+  d.dataset.phX = x ?? "";
+  d.textContent = t(key, x);
+  return d;
+}
+
+function media(item, alt) {
+  let el;
+  if (item.tipo === "video") {
+    el = document.createElement("video");
+    Object.assign(el, { src: item.src, muted: true, loop: true, autoplay: true, playsInline: true, preload: "metadata" });
+    el.setAttribute("muted", "");
+  } else {
+    el = document.createElement("img");
+    Object.assign(el, { src: item.src, alt, loading: "lazy", decoding: "async" });
+  }
+  return el;
+}
+
+/* ---- Portada ---- */
+(() => {
+  const el = media(DATOS.portada, "Alejandro");
+  if (el.tagName === "IMG") el.loading = "eager";
+  const ok = () => { $("#heroGlider").remove(); $(".hero").classList.add("con-foto"); };
+  el.addEventListener(el.tagName === "VIDEO" ? "loadeddata" : "load", ok, { once: true });
+  el.addEventListener("error", () => el.remove(), { once: true });
+  $("#heroMedia").append(el);
+})();
+
+/* ---- Galería ---- */
+DATOS.galeria.forEach((item, i) => {
+  const tile = document.createElement("div");
+  tile.className = "tile " + (item.forma || "");
+  const el = media(item, "Alejandro");
+  if (item.pos) el.style.objectPosition = item.pos;
+  el.addEventListener("error", () => el.replaceWith(placeholder(item.tipo === "video" ? "video" : "foto", i + 1)), { once: true });
+  tile.append(el);
+  $("#grid").append(tile);
+});
+
+/* ---- Contenido que depende del idioma ---- */
+function renderGfm() {
+  if (pendiente(DATOS.gofundme)) {
+    $("#linkGfm").setAttribute("aria-disabled", "true");
+    $("#gfmSub").textContent = t("gfmPronto");
+  } else {
+    $("#linkGfm").href = DATOS.gofundme;
+    $("#gfmSub").textContent = t("gfmS");
+  }
+}
+
+function renderPeru() {
+  $("#cuerpoPeru").innerHTML = `
+    <div class="bloque">
+      <h4>Yape</h4>
+      <div class="qr" id="qrYape"></div>
+      ${fila(t("numYape"), DATOS.yape.numero)}
+      ${fila(t("aNombre"), DATOS.titular)}
+    </div>
+    ${DATOS.bancos.map(b => `
+      <div class="bloque">
+        <h4>${esc(b.banco)}</h4>
+        <p class="sub">${esc(b.tipo[idioma] || b.tipo.es)}</p>
+        ${fila(t("numCuenta"), b.numero)}
+        ${fila(t("cci"), b.cci)}
+      </div>`).join("")}
+  `;
+  const img = new Image();
+  img.alt = "QR Yape";
+  img.onerror = () => img.replaceWith(placeholder("qrYape"));
+  img.src = DATOS.yape.qr;
+  $("#qrYape").append(img);
+}
+
+function renderWise() {
+  $("#cuerpoWise").innerHTML = `
+    <div class="bloque">
+      <p class="sub" style="margin-top:0">${t("wiseComo")}</p>
+      <a class="btn" style="width:100%;margin-bottom:18px" href="${esc(DATOS.wise.link)}" target="_blank" rel="noopener">${t("wiseAbrir")}</a>
+      <div class="qr" id="qrWise"></div>
+      ${fila(t("wiseUsuario"), DATOS.wise.usuario)}
+    </div>
+  `;
+  const img = new Image();
+  img.alt = t("qrWise");
+  img.onerror = () => img.replaceWith(placeholder("qrWise"));
+  img.src = DATOS.wise.qr;
+  $("#qrWise").append(img);
+}
+
+function aplicarIdioma(l) {
+  idioma = l;
+  document.documentElement.lang = l;
+  document.title = t("titulo");
+  document.querySelectorAll("[data-i18n]").forEach(el => { el.innerHTML = t(el.dataset.i18n); });
+  document.querySelectorAll("[data-i18n-aria]").forEach(el => el.setAttribute("aria-label", t(el.dataset.i18nAria)));
+  document.querySelectorAll(".ph[data-ph-key]").forEach(el => { el.textContent = t(el.dataset.phKey, el.dataset.phX); });
+  renderGfm();
+  renderPeru();
+  renderWise();
+  try { localStorage.setItem("idioma", l); } catch {}
+}
+aplicarIdioma(idioma);
+
+/* ---- Pantalla de idioma ---- */
+(() => {
+  const pantalla = $("#idioma");
+  if (document.documentElement.classList.contains("intro")) pantalla.querySelector("button").focus();
+  pantalla.querySelectorAll("[data-idioma]").forEach(b => b.addEventListener("click", () => {
+    aplicarIdioma(b.dataset.idioma);
+    pantalla.classList.add("fuera");
+    document.documentElement.classList.remove("intro");
+    window.scrollTo(0, 0);
+  }));
+  $("#langToggle").addEventListener("click", () => aplicarIdioma(idioma === "es" ? "en" : "es"));
+})();
+
+/* ---- Abrir / cerrar hojas ---- */
+document.querySelectorAll("[data-abrir]").forEach(b => b.addEventListener("click", () => {
+  document.getElementById(b.dataset.abrir).showModal();
+}));
+document.querySelectorAll("dialog").forEach(d => {
+  d.addEventListener("click", e => { if (e.target === d) d.close(); });
+  d.querySelector("[data-cerrar]").addEventListener("click", () => d.close());
+});
+
+/* ---- Copiar ---- */
+const toast = msg => {
+  const el = $("#toast");
+  el.textContent = msg;
+  el.classList.add("on");
+  clearTimeout(toast.timer);
+  toast.timer = setTimeout(() => el.classList.remove("on"), 1800);
+};
+async function copiarTexto(txt) {
+  try { await navigator.clipboard.writeText(txt); return true; }
+  catch {
+    const ta = Object.assign(document.createElement("textarea"), { value: txt });
+    ta.style.cssText = "position:fixed;opacity:0";
+    document.body.append(ta); ta.select();
+    const ok = document.execCommand("copy"); ta.remove(); return ok;
+  }
+}
+document.addEventListener("click", async e => {
+  const b = e.target.closest("[data-copiar]");
+  if (!b) return;
+  if (await copiarTexto(b.dataset.copiar)) {
+    b.textContent = t("copiado"); b.classList.add("ok");
+    toast(t("copiadoToast"));
+    setTimeout(() => { b.textContent = t("copiar"); b.classList.remove("ok"); }, 1800);
+  }
+});
+
+/* ---- Compartir (el link lleva el idioma, así quien lo abre no ve la pregunta) ---- */
+$("#btnCompartir").addEventListener("click", async () => {
+  const url = new URL(location.href);
+  url.searchParams.set("lang", idioma);
+  url.hash = "";
+  const data = { title: document.title, text: t("compartirTexto"), url: url.href };
+  if (navigator.share) { try { await navigator.share(data); } catch {} return; }
+  if (await copiarTexto(url.href)) toast(t("linkCopiado"));
+});
+
+/* ---- Contacto en el pie ---- */
+(() => {
+  const { instagram, whatsapp } = DATOS.contacto;
+  const links = [];
+  if (instagram) links.push(`<a href="https://instagram.com/${encodeURIComponent(instagram)}" target="_blank" rel="noopener">@${esc(instagram)}</a>`);
+  if (whatsapp) links.push(`<a href="https://wa.me/${encodeURIComponent(whatsapp)}" target="_blank" rel="noopener">WhatsApp</a>`);
+  if (links.length) $("#pie").insertAdjacentHTML("beforeend", `<br>${links.join(" · ")}`);
+})();
+
+/* ---- Botón flotante: aparece al pasar la portada, se esconde en la zona de donar ---- */
+(() => {
+  const f = $("#flotante");
+  let heroVisible = true, donarVisible = false;
+  const update = () => f.classList.toggle("on", !heroVisible && !donarVisible);
+  new IntersectionObserver(([e]) => { heroVisible = e.isIntersecting; update(); }).observe($(".hero"));
+  new IntersectionObserver(([e]) => { donarVisible = e.isIntersecting; update(); }, { threshold: .15 }).observe($("#donar"));
+})();
+
+/* ---- Aparición suave al hacer scroll ---- */
+(() => {
+  const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } }), { threshold: .15 });
+  document.querySelectorAll(".reveal").forEach(el => io.observe(el));
+})();
+</script>
+</body>
+</html>

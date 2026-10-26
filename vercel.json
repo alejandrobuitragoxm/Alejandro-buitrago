@@ -1,0 +1,6 @@
+{
+  "redirects": [
+    { "source": "/ayuda", "destination": "/ayuda/", "permanent": false },
+    { "source": "/help", "destination": "/ayuda/?lang=en", "permanent": false }
+  ]
+}
