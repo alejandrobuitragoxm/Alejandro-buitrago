@@ -163,8 +163,8 @@
   #donar .kicker { color: rgba(255,255,255,.55); }
   #donar h2 em { color: #FF8A5C; }
   .opciones { display: grid; gap: 14px; margin-top: 8px; }
-  @media (min-width: 860px) { .opciones { grid-template-columns: repeat(3, 1fr); gap: 18px; } }
-  html[lang="en"] .opcion.gfm { order: -1; } /* en inglés, GoFundMe primero */
+  @media (min-width: 860px) { .opciones { grid-template-columns: repeat(2, 1fr); gap: 18px; } }
+  html[lang="en"] .opcion.gfm, html[lang="en"] .opcion.usa { order: -1; } /* en inglés, GoFundMe y EE. UU. primero */
   .opcion {
     display: flex; align-items: center; gap: 18px; width: 100%; text-align: left;
     padding: 22px; border-radius: var(--radius); border: 1px solid rgba(255,255,255,.12);
@@ -185,6 +185,7 @@
   .opcion.peru .ico { background: #742284; color: #fff; }      /* morado Yape */
   .opcion.gfm  .ico { background: #02A95C; color: #fff; }      /* verde GoFundMe */
   .opcion.wise .ico { background: #9FE870; color: #163300; }    /* verde Wise */
+  .opcion.usa .ico { background: #2D6CDF; color: #fff; }        /* azul EE. UU. */
   .opcion .txt { flex: 1; min-width: 0; }
   .opcion strong { display: block; font-size: 20px; font-weight: 600; margin-bottom: 2px; }
   .opcion span { color: rgba(255,255,255,.65); font-size: 15px; }
@@ -386,6 +387,12 @@
         <span class="txt"><strong>Wise</strong><span data-i18n="wiseS">Transferencia internacional</span></span>
         <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg>
       </button>
+
+      <button class="opcion usa" data-abrir="hojaUSA">
+        <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 5.5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg></span>
+        <span class="txt"><strong data-i18n="usaT">Desde EE. UU.</strong><span data-i18n="usaS">Zelle o Bank of America</span></span>
+        <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg>
+      </button>
     </div>
 
     <p class="nota-donar" data-i18n="notaDonar">Todo lo que recibo va a mi tratamiento médico y rehabilitación.</p>
@@ -424,6 +431,12 @@
   <div class="sheet-body" id="cuerpoPeru"></div>
 </dialog>
 
+<!-- ================= HOJA: EE. UU. ================= -->
+<dialog id="hojaUSA" aria-labelledby="tUSA">
+  <div class="sheet-head"><h3 id="tUSA" data-i18n="usaT">Desde EE. UU.</h3><button class="cerrar" data-cerrar data-i18n-aria="cerrar" aria-label="Cerrar"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
+  <div class="sheet-body" id="cuerpoUSA"></div>
+</dialog>
+
 <!-- ================= HOJA: WISE ================= -->
 <dialog id="hojaWise" aria-labelledby="tWise">
   <div class="sheet-head"><h3 id="tWise">Wise</h3><button class="cerrar" data-cerrar data-i18n-aria="cerrar" aria-label="Cerrar"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
@@ -456,6 +469,12 @@ const DATOS = {
     usuario: "@alejandrob1265",
     link: "https://wise.com/pay/me/alejandrob1265",
     qr: "fotos/wise-qr.png"
+  },
+
+  eeuu: {
+    titular: "Alejandro Fabio Buitrago Zegarra",
+    zelle: "alejandro.buitrago.xm@gmail.com",
+    bofa: { numero: "139107862203", ach: "123103716", wire: "026009593" }
   },
 
   // Portada: foto o video. Si el archivo no existe se ve el degradado de atardecer.
@@ -496,7 +515,14 @@ const TEXTOS = {
     historia4: "No me gusta pedir este tipo de ayuda económica, pero esta vez me veo obligado a hacerlo. De antemano, muchísimas gracias por cualquier aporte, por más pequeño que sea. Y si no puedes donar, compartir esta página también me ayuda muchísimo.",
     firma: "Muchísimas gracias,<br>Alejandro",
     donarKicker: "Elige cómo ayudar",
-    donarH2: "Tres formas de <em>donar.</em>",
+    donarH2: "Cuatro formas de <em>donar.</em>",
+    usaT: "Desde EE. UU.",
+    usaS: "Zelle o Bank of America",
+    zelleComo: "Desde la app de tu banco, envía con Zelle a este correo:",
+    zelleDato: "Correo de Zelle",
+    bofaTipo: "Cuenta en dólares, para transferencias desde bancos de EE. UU.",
+    routingAch: "Routing number (ACH / electrónico)",
+    routingWire: "Routing number (wire transfer)",
     wiseS: "Transferencia internacional",
     wiseComo: "Desde cualquier país: abre el link o escanea el QR con la app de Wise.",
     wiseAbrir: "Donar con Wise",
@@ -543,7 +569,14 @@ const TEXTOS = {
     historia4: "I don't like asking for financial help like this, but this time I have no other choice. Thank you so much in advance for any contribution, no matter how small. And if you can't donate, sharing this page helps me enormously.",
     firma: "Thank you so much,<br>Alejandro",
     donarKicker: "Choose how to help",
-    donarH2: "Three ways to <em>give.</em>",
+    donarH2: "Four ways to <em>give.</em>",
+    usaT: "From the US",
+    usaS: "Zelle or Bank of America",
+    zelleComo: "From your banking app, send with Zelle to this email:",
+    zelleDato: "Zelle email",
+    bofaTipo: "US dollar account, for transfers from US banks.",
+    routingAch: "Routing number (ACH / electronic)",
+    routingWire: "Routing number (wire transfer)",
     wiseS: "International transfer",
     wiseComo: "From any country: open the link or scan the QR with the Wise app.",
     wiseAbrir: "Give with Wise",
@@ -684,6 +717,26 @@ function renderWise() {
   $("#qrWise").append(img);
 }
 
+function renderUSA() {
+  const u = DATOS.eeuu;
+  $("#cuerpoUSA").innerHTML = `
+    <div class="bloque">
+      <h4>Zelle</h4>
+      <p class="sub">${t("zelleComo")}</p>
+      ${fila(t("zelleDato"), u.zelle)}
+      ${fila(t("aNombre"), u.titular)}
+    </div>
+    <div class="bloque">
+      <h4>Bank of America</h4>
+      <p class="sub">${t("bofaTipo")}</p>
+      ${fila(t("numCuenta"), u.bofa.numero)}
+      ${fila(t("routingAch"), u.bofa.ach)}
+      ${fila(t("routingWire"), u.bofa.wire)}
+      ${fila(t("aNombre"), u.titular)}
+    </div>
+  `;
+}
+
 function aplicarIdioma(l) {
   idioma = l;
   document.documentElement.lang = l;
@@ -694,6 +747,7 @@ function aplicarIdioma(l) {
   renderGfm();
   renderPeru();
   renderWise();
+  renderUSA();
   try { localStorage.setItem("idioma", l); } catch {}
 }
 aplicarIdioma(idioma);
