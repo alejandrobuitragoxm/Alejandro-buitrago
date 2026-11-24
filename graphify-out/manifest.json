@@ -1,0 +1,182 @@
+{
+  ".claude/launch.json": {
+    "mtime": 1789695334.6262498,
+    "seen": 1792718066.269291,
+    "ast_hash": "d9a74ffd2dacc4c281cc5d6c05510512",
+    "semantic_hash": ""
+  },
+  "api/contact.js": {
+    "mtime": 1791921019.2577364,
+    "seen": 1792718066.2692952,
+    "ast_hash": "39cca638d528f391f62635d49aea6661",
+    "semantic_hash": ""
+  },
+  "metadata.json": {
+    "mtime": 1789609170.0,
+    "seen": 1792718066.269297,
+    "ast_hash": "1ba1c4dda780dadfe5851c1292517b5c",
+    "semantic_hash": ""
+  },
+  "package.json": {
+    "mtime": 1789695330.8394237,
+    "seen": 1792718066.2692978,
+    "ast_hash": "95fe528206fed66bb4d55d909e01bcaa",
+    "semantic_hash": ""
+  },
+  "src/App.tsx": {
+    "mtime": 1790568411.2780502,
+    "seen": 1792718066.269299,
+    "ast_hash": "10ee1eb1ef4266c41d08dea40e41f544",
+    "semantic_hash": ""
+  },
+  "src/components/AboutSection.tsx": {
+    "mtime": 1790568514.5955076,
+    "seen": 1792718066.2693,
+    "ast_hash": "6476f8cb4404554b6caa756f3c02faa0",
+    "semantic_hash": ""
+  },
+  "src/components/CinematicReel.tsx": {
+    "mtime": 1790568514.6165125,
+    "seen": 1792718066.269301,
+    "ast_hash": "2fe42aaf4ae3ae7299cba7a8ad5df9d9",
+    "semantic_hash": ""
+  },
+  "src/components/ClientStrip.tsx": {
+    "mtime": 1790568846.411889,
+    "seen": 1792718066.2693021,
+    "ast_hash": "7b770e3e708b18cc6e075e7a2a97763a",
+    "semantic_hash": ""
+  },
+  "src/components/ContactModal.tsx": {
+    "mtime": 1791921229.672772,
+    "seen": 1792718066.2693021,
+    "ast_hash": "f3134093120fe89f4faf629cb75f8040",
+    "semantic_hash": ""
+  },
+  "src/components/Footer.tsx": {
+    "mtime": 1790568514.60388,
+    "seen": 1792718066.269303,
+    "ast_hash": "3c5eeed010419b7c775040ae2733b7dd",
+    "semantic_hash": ""
+  },
+  "src/components/Header.tsx": {
+    "mtime": 1790568311.7638865,
+    "seen": 1792718066.269303,
+    "ast_hash": "167ea46efa0db6b415af81ebb1fc5613",
+    "semantic_hash": ""
+  },
+  "src/components/HeroReel.tsx": {
+    "mtime": 1790629837.6382568,
+    "seen": 1792718066.269304,
+    "ast_hash": "cf475f240da383a1a604a55ceda0920c",
+    "semantic_hash": ""
+  },
+  "src/components/ProjectCard.tsx": {
+    "mtime": 1790644693.2499561,
+    "seen": 1792718066.269305,
+    "ast_hash": "4a2a51096c85cd1aeb7f32fcc12bb4a3",
+    "semantic_hash": ""
+  },
+  "src/components/ProjectEditorModal.tsx": {
+    "mtime": 1790460142.666789,
+    "seen": 1792718066.2693062,
+    "ast_hash": "d2f082428d2da20c2c109a2b4b0ea19f",
+    "semantic_hash": ""
+  },
+  "src/components/ProjectModal.tsx": {
+    "mtime": 1790644863.9005265,
+    "seen": 1792718066.2693062,
+    "ast_hash": "7bc2bc01cf8cff08e1a15069b1ef84a0",
+    "semantic_hash": ""
+  },
+  "src/components/ProjectTableIndex.tsx": {
+    "mtime": 1790644745.940471,
+    "seen": 1792718066.269307,
+    "ast_hash": "6c56bc11acf0c537bb0143a7c3082ebf",
+    "semantic_hash": ""
+  },
+  "src/components/ShowreelModal.tsx": {
+    "mtime": 1790460161.016824,
+    "seen": 1792718066.269307,
+    "ast_hash": "34b8b58716a99f4850454c2354dd5974",
+    "semantic_hash": ""
+  },
+  "src/components/WorksGallery.tsx": {
+    "mtime": 1790568514.590648,
+    "seen": 1792718066.2693079,
+    "ast_hash": "c7173d2ef4d8e1dcd3ce9625103358c6",
+    "semantic_hash": ""
+  },
+  "src/data/initialProjects.ts": {
+    "mtime": 1790568367.6612546,
+    "seen": 1792718066.269309,
+    "ast_hash": "f1e4abaeaec9e3cbbd9be2065fe8b2e2",
+    "semantic_hash": ""
+  },
+  "src/main.tsx": {
+    "mtime": 1789609170.0,
+    "seen": 1792718066.269309,
+    "ast_hash": "2b36426d5ad7e08ef79746aa524f4fb7",
+    "semantic_hash": ""
+  },
+  "src/types.ts": {
+    "mtime": 1790460133.8230088,
+    "seen": 1792718066.26931,
+    "ast_hash": "b009c9f2dd982055453e43900b342e83",
+    "semantic_hash": ""
+  },
+  "src/utils/videoHelper.ts": {
+    "mtime": 1789609170.0,
+    "seen": 1792718066.269311,
+    "ast_hash": "be19d46fd2a3bc76f7fae6f59f919ee7",
+    "semantic_hash": ""
+  },
+  "src/vite-env.d.ts": {
+    "mtime": 1789622706.0,
+    "seen": 1792718066.269312,
+    "ast_hash": "0352474ba2918efe13895edbc3780d94",
+    "semantic_hash": ""
+  },
+  "tsconfig.json": {
+    "mtime": 1789609170.0,
+    "seen": 1792718066.269312,
+    "ast_hash": "8827451c4e35790dd3f3538c265e7d15",
+    "semantic_hash": ""
+  },
+  "vite.config.ts": {
+    "mtime": 1789609170.0,
+    "seen": 1792718066.269313,
+    "ast_hash": "9c319043c25764dfe83b687f74637c6c",
+    "semantic_hash": ""
+  },
+  "CLAUDE.md": {
+    "mtime": 1790471151.5759945,
+    "seen": 1792718066.269314,
+    "ast_hash": "c2051cf537dc45d060e049b33b6214fd",
+    "semantic_hash": ""
+  },
+  "README.md": {
+    "mtime": 1789609170.0,
+    "seen": 1792718066.269314,
+    "ast_hash": "d845a0c525377f306c1e48a95f858ef4",
+    "semantic_hash": ""
+  },
+  "index.html": {
+    "mtime": 1790629815.167028,
+    "seen": 1792718066.269315,
+    "ast_hash": "9596d8f1769e678fda17c2d6049756cf",
+    "semantic_hash": ""
+  },
+  "src/assets/alejandro-bio.jpg": {
+    "mtime": 1789622587.0,
+    "seen": 1792718066.2693162,
+    "ast_hash": "61943c4fd3f87c4fe62dd2250117a362",
+    "semantic_hash": ""
+  },
+  "public/hero.mp4": {
+    "mtime": 1790609026.555158,
+    "seen": 1792718066.2693162,
+    "ast_hash": "95879668d419e8221b5e6c74bb58f20c",
+    "semantic_hash": ""
+  }
+}
