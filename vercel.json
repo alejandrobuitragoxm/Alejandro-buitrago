@@ -1,6 +1,7 @@
 {
   "redirects": [
     { "source": "/ayuda", "destination": "/", "permanent": false },
+    { "source": "/ayuda/", "destination": "/", "permanent": false },
     { "source": "/ayuda/:path*", "destination": "/", "permanent": false },
     { "source": "/help", "destination": "/", "permanent": false }
   ]
